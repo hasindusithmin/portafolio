@@ -31,10 +31,11 @@ export default function Navbar({RENDER_HOME,RENDER_EDU,RENDER_CERT,RENDER_SKILLS
 
             <div className="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
                 <div className="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
-                    <span  className="w3-bar-item w3-button" style={{width:'20%'}}>HOME</span>
-                    <span href="#about" className="w3-bar-item w3-button" style={{width:'20%'}}>ABOUT</span>
-                    <span href="#photos" className="w3-bar-item w3-button" style={{width:'20%'}}>PHOTOS</span>
-                    <span href="#contact" className="w3-bar-item w3-button" style={{width:'20%'}}>CONTACT</span>
+                    <span onClick={RENDER_HOME}  className="w3-bar-item w3-button" style={{width:'20%'}}>HOME</span>
+                    <span onClick={RENDER_EDU} className="w3-bar-item w3-button" style={{width:'20%'}}>EDU</span>
+                    <span onClick={RENDER_CERT} className="w3-bar-item w3-button" style={{width:'20%'}}>CERT</span>
+                    <span onClick={RENDER_SKILLS} className="w3-bar-item w3-button" style={{width:'20%'}}>SKILLS</span>
+                    <span onClick={RENDER_PROJECTS} className="w3-bar-item w3-button" style={{width:'20%'}}>PROJS</span>
                 </div>
             </div>
 

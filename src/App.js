@@ -7,6 +7,7 @@ import diploma from "./diploma.gif"
 import certificate from "./certificate.gif"
 import verified from "./verified.gif"
 import blueprint from "./blueprint.gif"
+import Footer from './components/Footer';
 
 function App() {
 
@@ -170,7 +171,7 @@ function App() {
               CERTS.map(({ src, desc }) => (
                 <p key={Math.random()}>
                   <div className='w3-card w3-round-large w3-white'>
-                    <iframe src={src} frameBorder="0" width='100%' height={window.navigator.userAgentData.mobile ? '600px' : '850px'} />
+                    <iframe title={desc} src={src} frameBorder="0" width='100%' height={window.navigator.userAgentData.mobile ? '600px' : '850px'} />
                   </div>
                   <p className='w3-padding w3-text-white'>{desc}</p>
                   <hr style={{ width: '300px' }} className="w3-opacity" />
@@ -251,9 +252,9 @@ function App() {
                     }
                   </div>
                   <div className='w3-padding'>
-                    <a href={project_url} className='w3-button w3-grey w3-round-large' target="_blank">URL</a>
+                    <a href={project_url} className='w3-button w3-grey w3-round-large' target="_blank" rel="noreferrer">URL</a>
                     &nbsp;
-                    {github && <a href={project_url} className='w3-button w3-right w3-grey w3-round-large' target="_blank">GitHub</a>}
+                    {github && <a href={project_url} className='w3-button w3-right w3-grey w3-round-large' target="_blank" rel="noreferrer">GitHub</a>}
                   </div>
                   <p className='w3-justify'>{details}</p>
                 </div>
@@ -263,6 +264,8 @@ function App() {
         }
 
       </div>
+
+      <Footer />
     </>
   );
 }
