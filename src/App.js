@@ -252,9 +252,16 @@ function App() {
                     }
                   </div>
                   <div className='w3-padding'>
-                    <a href={project_url} className='w3-button w3-grey w3-round-large' target="_blank" rel="noreferrer">URL</a>
+                    <a href={project_url} className='w3-button  w3-round-large' target="_blank" rel="noreferrer">
+                      <img src="/devimages/web2.png"  width="35" height="35" />
+                    </a>
                     &nbsp;
-                    {github && <a href={project_url} className='w3-button w3-right w3-grey w3-round-large' target="_blank" rel="noreferrer">GitHub</a>}
+                    {
+                      github &&
+                      <a href={project_url} className='w3-button w3-right w3-round-large' target="_blank" rel="noreferrer">
+                        <img src="/devimages/github.png"  width="35" height="35" />
+                      </a>
+                    }
                   </div>
                   <p className='w3-justify'>{details}</p>
                 </div>
