@@ -5,29 +5,41 @@ import profile from "./1663156760981.jpeg"
 import { useState } from 'react';
 import diploma from "./diploma.gif"
 import certificate from "./certificate.gif"
+import verified from "./verified.gif"
 function App() {
 
   const [SHOW_HOME, SET_SHOW_HOME] = useState(true);
   const [SHOW_EDU, SET_SHOW_EDU] = useState(false);
   const [SHOW_CERT, SET_SHOW_CERT] = useState(false);
+  const [SHOW_SKILLS, SET_SHOW_SKILLS] = useState(false);
 
 
   const RENDER_HOME = () => {
     SET_SHOW_HOME(true)
     SET_SHOW_EDU(false)
     SET_SHOW_CERT(false)
+    SET_SHOW_SKILLS(false)
   }
 
   const RENDER_EDU = () => {
     SET_SHOW_HOME(false)
     SET_SHOW_EDU(true)
     SET_SHOW_CERT(false)
+    SET_SHOW_SKILLS(false)
   }
 
   const RENDER_CERT = () => {
     SET_SHOW_HOME(false)
     SET_SHOW_EDU(false)
     SET_SHOW_CERT(true)
+    SET_SHOW_SKILLS(false)
+  }
+
+  const RENDER_SKILLS = () => {
+    SET_SHOW_HOME(false)
+    SET_SHOW_EDU(false)
+    SET_SHOW_CERT(false)
+    SET_SHOW_SKILLS(true)
   }
 
   const CERTS = [
@@ -45,12 +57,22 @@ function App() {
     }
   ]
 
+  const Skills = {
+    'Programming languages': ['java.svg', 'javascript.svg', 'nodejs.png', 'python.svg'],
+    'Web development': ['html5.svg', 'nextjs.svg', 'react.svg'],
+    Frameworks: ['express.svg', 'fastapi.png', 'fiber.png'],
+    Databases: ['firebase.png', 'mongodb.png', 'postgresql.png', 'supabase.png'],
+    'Operating system': ['fedora.png'],
+    'Version control': ['github.png']
+  }
+
   return (
     <>
       <Navbar
         RENDER_HOME={RENDER_HOME}
         RENDER_EDU={RENDER_EDU}
         RENDER_CERT={RENDER_CERT}
+        RENDER_SKILLS={RENDER_SKILLS}
       />
 
       <div className="w3-padding-large">
@@ -134,6 +156,30 @@ function App() {
               ))
             }
           </div>
+        }
+
+        {
+          SHOW_SKILLS &&
+          <div className="w3-content w3-justify w3-text-grey w3-padding-64">
+            <h2 className="w3-text-light-grey">SKILLS</h2>
+            <hr style={{ width: '200px' }} className="w3-opacity" />
+            <div className='w3-center'>
+              <img src={verified} alt="skills" className='w3-image w3-sepia-max' width="50%" />
+            </div>
+            <p className='w3-text-white'>
+              As a highly skilled and well-rounded programmer, I have a diverse skill set that includes proficiency in programming languages such as JavaScript, Node.js, Python, and Java. I am also proficient in HTML and CSS, and have experience with various frameworks including FastAPI, Express, Fiber, Spring Boot, and React. My knowledge of REST API and OOP principles allows me to effectively design and implement software solutions, and my familiarity with both SQL and NoSQL databases such as MySQL, Postgres, MongoDB, Firebase, and Supabase gives me the ability to work with a wide range of data storage options. In addition to my technical skills, I have experience using version control systems such as Github and am proficient in operating systems like Fedora. My strong logical thinking, excellent communication abilities, and ability to quickly learn new technologies make me a valuable asset to any team, and I am committed to producing high-quality work.
+            </p>
+            {Object.entries(Skills).map(([key,value])=>(
+              <p className='w3-text-white' key={Math.random()}>
+                <h3>{key}</h3>
+                {
+                  value.map(skill=>(<span className='w3-white w3-padding w3-light-grey w3-round-large w3-margin-right'title={skill} ><img src={`/devimages/${skill}`} alt={skill}  width="30" height="30" /></span>))
+                }
+              </p>
+            ))}
+
+          </div>
+
         }
 
       </div>

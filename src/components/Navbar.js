@@ -1,7 +1,7 @@
 
 import profile from "../1663156760981.jpeg"
 
-export default function Navbar({RENDER_HOME,RENDER_EDU,RENDER_CERT}) {
+export default function Navbar({RENDER_HOME,RENDER_EDU,RENDER_CERT,RENDER_SKILLS}) {
 
     return (
         <>
@@ -19,7 +19,7 @@ export default function Navbar({RENDER_HOME,RENDER_EDU,RENDER_CERT}) {
                         <i className="fa fa-certificate w3-xxlarge"></i>
                         <p>CERTIFICATES</p>
                     </span>
-                    <span  className="w3-bar-item w3-button w3-padding-large w3-hover-black">
+                    <span onClick={RENDER_SKILLS} className="w3-bar-item w3-button w3-padding-large w3-hover-black">
                         <i className="fa fa-hand-paper-o w3-xxlarge"></i>
                         <p>SKILLS</p>
                     </span>
