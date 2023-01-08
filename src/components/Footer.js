@@ -5,17 +5,17 @@ export default function Footer() {
     const PLATS = [
         {
             "name":"Linkedin",
-            "image":"linkedin1.png",
+            "image":"new-linkedin.png",
             "url":"https://www.linkedin.com/in/hasindu-sithmin-9a1a12209/"
         },
         {
             "name":"Medium",
-            "image":"medium.png",
+            "image":"new-medium.png",
             "url":"https://medium.com/@hasindusithmin64"
         },
         {
             "name":"Github",
-            "image":"github.png",
+            "image":"new-github.png",
             "url":"https://github.com/hasindusithmin"
         }
     ]

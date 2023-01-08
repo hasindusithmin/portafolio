@@ -1,7 +1,6 @@
 
 import './App.css';
 import Navbar from './components/Navbar';
-import profile from "./1663156760981.jpeg"
 import { useState } from 'react';
 import diploma from "./diploma.gif"
 import certificate from "./certificate.gif"
@@ -108,22 +107,21 @@ function App() {
               <h1 className="w3-jumbo"><span className="w3-hide-small">I'm</span> Hasindu Sithmin.</h1>
               <p className='w3-xxlarge'>Developer.</p>
               <div className='w3-center'>
-                <img src={profile} alt="boy" className="w3-image w3-sepia-max" width="50%" />
+                <img src="./profile_side.jpg" alt="profile_side" className="w3-image w3-sepia-max w3-round-large" width="50%" />
               </div>
             </header>
             <div className="w3-content w3-justify w3-text-grey w3-padding-64">
-              <h2 className="w3-text-light-grey">Hasindu Sithmin</h2>
-              <hr style={{ width: '200px' }} className="w3-opacity" />
+              <h2 className="w3-text-light-grey">ABOUT ME</h2>
+              <hr  className="w3-opacity" />
               <div className='w3-text-white'>
                 <p>
                   Hi, I'm Hasindu Sithmin, a driven and self-motivated Information Technology student at the University of Moratuwa's Institute of Technology. From a young age, I've been fascinated by technology and have always been drawn to problem-solving. I started learning to code as a teenager, and after achieving success in my Advanced Level exams, I knew that software engineering was the right career path for me.
                 </p>
                 <p>
                   Since then, I've gained experience through a variety of projects and involvement with notable startups, continuously improving my skills in React.js, Node.js, and Python. In addition to these programming languages, I'm familiar with frameworks such as FastAPI, Express.js, Spring Boot, React.js, and Next.js.
+                  I'm always looking for new challenges and opportunities to grow, and I'm excited to connect and collaborate with like-minded individuals. 
                 </p>
-                <p>
-                  I'm always looking for new challenges and opportunities to grow, and I'm excited to connect and collaborate with like-minded individuals. You can check out my work on GitHub at https://github.com/hasindusithmin. Thank you for visiting my website!
-                </p>
+
               </div>
             </div>
           </div>
@@ -253,13 +251,13 @@ function App() {
                   </div>
                   <div className='w3-padding'>
                     <a href={project_url} className='w3-button  w3-round-large' target="_blank" rel="noreferrer">
-                      <img src="/devimages/web2.png"  width="35" height="35" />
+                      <img src="/devimages/chrome.png" alt='web2'  width="35" height="35" />&nbsp;<span className='w3-hide-small'>Project URL</span>
                     </a>
                     &nbsp;
                     {
                       github &&
                       <a href={project_url} className='w3-button w3-right w3-round-large' target="_blank" rel="noreferrer">
-                        <img src="/devimages/github.png"  width="35" height="35" />
+                        <img src="/devimages/new-github.png" alt='github'  width="35" height="35" />&nbsp;<span className='w3-hide-small'>Source Code</span>
                       </a>
                     }
                   </div>

@@ -8,6 +8,11 @@ h6 {
   font-family: "Montserrat", sans-serif
 }
 
+body{
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+}
+
 .w3-row-padding img {
   margin-bottom: 12px
 }
