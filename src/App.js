@@ -256,7 +256,7 @@ function App() {
                     &nbsp;
                     {
                       github &&
-                      <a href={project_url} className='w3-button w3-right w3-round-large' target="_blank" rel="noreferrer">
+                      <a href={github} className='w3-button w3-right w3-round-large' target="_blank" rel="noreferrer">
                         <img src="/devimages/new-github.png" alt='github'  width="35" height="35" />&nbsp;<span className='w3-hide-small'>Source Code</span>
                       </a>
                     }
