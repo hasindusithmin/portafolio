@@ -105,23 +105,24 @@ function App() {
           <div>
             <header className="w3-container w3-padding-32 w3-center w3-black" id="home">
               <h1 className="w3-jumbo"><span className="w3-hide-small">I'm</span> Hasindu Sithmin.</h1>
-              <p className='w3-xxlarge'>Developer.</p>
+              <p className='w3-xxlarge'>A Developer</p>
               <div className='w3-center'>
-                <img src="./profile_side.jpg" alt="profile_side" className="w3-image w3-sepia-max w3-round-large" width="50%" />
+                <img src="./hasindu.jpg" alt="profile_side" className="w3-image w3-opacity w3-round-large" width="50%" />
               </div>
             </header>
             <div className="w3-content w3-justify w3-text-grey w3-padding-64">
               <h2 className="w3-text-light-grey">ABOUT ME</h2>
-              <hr  className="w3-opacity" />
+              <hr className="w3-opacity" />
               <div className='w3-text-white'>
                 <p>
-                  Hi, I'm Hasindu Sithmin, a driven and self-motivated Information Technology student at the University of Moratuwa's Institute of Technology. From a young age, I've been fascinated by technology and have always been drawn to problem-solving. I started learning to code as a teenager, and after achieving success in my Advanced Level exams, I knew that software engineering was the right career path for me.
+                  Welcome to my portfolio website, If someone were to ask me about my favorite pastime, I would proudly declare that my hobby is computer programming. It's not just a passion or interest, it's an integral part of who I am. Whether it's gardening, shopping, cooking, or playing video games, nothing brings me more joy than writing lines of code from dawn till dusk. The sheer excitement and thrill of creating something new, solving complex problems, and constantly pushing the boundaries of what's possible through technology is what drives me. To me, programming is not just a hobby, it's a way of life.
                 </p>
                 <p>
-                  Since then, I've gained experience through a variety of projects and involvement with notable startups, continuously improving my skills in React.js, Node.js, and Python. In addition to these programming languages, I'm familiar with frameworks such as FastAPI, Express.js, Spring Boot, React.js, and Next.js.
-                  I'm always looking for new challenges and opportunities to grow, and I'm excited to connect and collaborate with like-minded individuals. 
+                  As a software developer intern, I am passionate about using technology to solve real-world problems and create innovative solutions. I am a student at the Institute of Technology, University of Moratuwa, where I have gained a strong foundation in programming languages such as Javascript (both client-side and Server-side) and Python.
                 </p>
-
+                <p>
+                  During my internship, I have had the opportunity to work on several projects that have allowed me to apply my knowledge and skills in a practical setting.My sharp attention to detail and passion for teamwork have allowed me to produce exceptional results alongside my colleagues. I am a lifelong learner who is constantly seeking new opportunities to expand my horizons and stay ahead of the curve with cutting-edge technologies and industry trends.
+                </p>
               </div>
             </div>
           </div>
@@ -136,7 +137,16 @@ function App() {
               <img src={diploma} alt="diploma" className='w3-image w3-sepia-max' width="50%" />
             </div>
             <p className='w3-text-white'>
-              I received my primary and secondary education at St. Joseph's College in Anuradhapura, where I studied from grade 1 through 11. Upon completion, I took my advanced level exams at Central College in Anuradhapura and achieved a successful result. As a result, I was accepted into the Institute of Technology at the University of Moratuwa, where I am currently pursuing a diploma in information technology.
+              Welcome to my portfolio website, where I am thrilled to showcase my educational journey and achievements. From my early years at A/St. Joseph's College, where I completed my primary and ordinary level education, to my advanced level studies at Central College under the physical science, and finally, pursuing higher education at the Institute of Technology University of Moratuwa under the Information Technology domain, my education has been a fulfilling and enriching experience.
+            </p>
+            <p className='w3-text-white'>
+              My time at St. Joseph's College instilled in me a strong foundation in fundamental subjects, while my studies at Central College honed my scientific and analytical skills. During my advanced level studies, I was able to explore my interests in the physical sciences and develop a deeper understanding of complex concepts.
+            </p>
+            <p className='w3-text-white'>
+              Continuing my education at the Institute of Technology University of Moratuwa under the Information Technology domain has been an exciting journey. I have had the opportunity to learn from expert faculty members and engage in hands-on projects that have enabled me to apply theoretical knowledge to real-world scenarios. Through my studies, I have gained proficiency in various programming languages, software development, database management, and other critical IT skills.
+            </p>
+            <p className='w3-text-white'>
+              My education has prepared me for a career in the dynamic and ever-evolving field of Information Technology. With my strong foundation in fundamental subjects, scientific and analytical skills, and expertise in IT, I am confident in my ability to make a valuable contribution to any organization.
             </p>
           </div>
         }
@@ -251,13 +261,13 @@ function App() {
                   </div>
                   <div className='w3-padding'>
                     <a href={project_url} className='w3-button  w3-round-large' target="_blank" rel="noreferrer">
-                      <img src="/devimages/chrome.png" alt='web2'  width="35" height="35" />&nbsp;<span className='w3-hide-small'>Project URL</span>
+                      <img src="/devimages/chrome.png" alt='web2' width="35" height="35" />&nbsp;<span className='w3-hide-small'>Project URL</span>
                     </a>
                     &nbsp;
                     {
                       github &&
                       <a href={github} className='w3-button w3-right w3-round-large' target="_blank" rel="noreferrer">
-                        <img src="/devimages/new-github.png" alt='github'  width="35" height="35" />&nbsp;<span className='w3-hide-small'>Source Code</span>
+                        <img src="/devimages/new-github.png" alt='github' width="35" height="35" />&nbsp;<span className='w3-hide-small'>Source Code</span>
                       </a>
                     }
                   </div>
