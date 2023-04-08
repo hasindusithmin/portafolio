@@ -158,9 +158,9 @@ function App() {
           SHOW_HOME &&
           <div onLoad={() => { displayTXT('homeTXT', content['home']) }}>
             <header className="w3-container w3-padding-32 w3-center w3-black" id="home">
-              <h1 className="w3-jumbo w3-animate-top"><span className="w3-hide-small">I'm</span> Hasindu Sithmin.</h1>
+              <h1 className="w3-jumbo w3-animate-top"><span className="w3-hide-small">I'm</span> Hasindu Sithmin</h1>
               <p className='w3-xxlarge'><span className='w3-animate-left' >A</span> <span className='w3-animate-right'>Developer</span></p>
-              <div className='w3-center w3-animate-bottom'>
+              <div className='w3-center w3-animate-zoom'>
                 <img src="./hasindu.jpg" alt="profile_side" className="w3-image w3-opacity w3-round-large" width="50%" />
               </div>
             </header>
@@ -179,7 +179,7 @@ function App() {
           <div className="w3-content w3-justify w3-text-grey w3-padding-64" onLoad={() => { displayTXT('eduTXT', content['education']) }}>
             <h2 className="w3-text-light-grey w3-animate-left" id='eduHead'>EDUCATION</h2>
             <hr style={{ width: '200px' }} className="w3-opacity" />
-            <div className='w3-center'>
+            <div className='w3-center w3-animate-zoom'>
               <img src={diploma} alt="diploma" className='w3-image w3-sepia-max' width="50%" />
             </div>
             <p className='w3-text-white' id='eduTXT'></p>
@@ -190,9 +190,9 @@ function App() {
         {
           SHOW_CERT &&
           <div className="w3-content w3-justify w3-text-grey w3-padding-64">
-            <h2 className="w3-text-light-grey">CERTIFICATES</h2>
+            <h2 className="w3-text-light-grey w3-animate-left">CERTIFICATES</h2>
             <hr style={{ width: '200px' }} className="w3-opacity" />
-            <div className='w3-center'>
+            <div className='w3-center w3-animate-zoom'>
               <img src={certificate} alt="certificate" className='w3-image w3-sepia-max' width="50%" />
             </div>
             <div className='w3-text-white'>
@@ -227,9 +227,9 @@ function App() {
         {
           SHOW_SKILLS &&
           <div className="w3-content w3-justify w3-text-grey w3-padding-64">
-            <h2 className="w3-text-light-grey">SKILLS</h2>
+            <h2 className="w3-text-light-grey w3-animate-left">SKILLS</h2>
             <hr style={{ width: '200px' }} className="w3-opacity" />
-            <div className='w3-center'>
+            <div className='w3-center w3-animate-zoom'>
               <img src={verified} alt="skills" className='w3-image w3-sepia-max' width="50%" />
             </div>
             <p className='w3-text-white'>
@@ -251,9 +251,9 @@ function App() {
         {
           SHOW_PROJECT &&
           <div className="w3-content w3-justify w3-text-grey w3-padding-64">
-            <h2 className="w3-text-light-grey">PROJECTS</h2>
+            <h2 className="w3-text-light-grey w3-animate-left">PROJECTS</h2>
             <hr style={{ width: '200px' }} className="w3-opacity" />
-            <div className='w3-center'>
+            <div className='w3-center w3-animate-zoom'>
               <img src={blueprint} alt="blueprint" className='w3-image w3-sepia-max' width="50%" />
             </div>
             {
