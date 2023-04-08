@@ -1,27 +1,29 @@
 
 export default function Navbar({RENDER_HOME,RENDER_EDU,RENDER_CERT,RENDER_SKILLS,RENDER_PROJECTS}) {
 
+
+
     return (
         <>
             <nav className="w3-sidebar w3-bar-block w3-small w3-hide-small w3-hide-medium w3-center">
                 <img src="./profile.jpg" alt="profile"  className="w3-sepia w3-circle" style={{width:'100%'}} />
-                    <span onClick={RENDER_HOME} className="w3-bar-item w3-button w3-padding-large w3-black">
+                    <span onClick={RENDER_HOME} className="w3-bar-item w3-button w3-padding-large w3-hover-black" style={{backgroundColor:'black'}} id="HOME">
                         <i className="fa fa-home w3-xxlarge"></i>
                         <p>HOME</p>
                     </span>
-                    <span onClick={RENDER_EDU}  className="w3-bar-item w3-button w3-padding-large w3-hover-black">
+                    <span onClick={RENDER_EDU}  className="w3-bar-item w3-button w3-padding-large w3-hover-black" id="EDUCATION">
                         <i className="fa fa-university w3-xxlarge"></i>
                         <p>EDUCATION</p>
                     </span>
-                    <span onClick={RENDER_CERT} className="w3-bar-item w3-button w3-padding-large w3-hover-black">
+                    <span onClick={RENDER_CERT} className="w3-bar-item w3-button w3-padding-large w3-hover-black" id="CERTIFICATES">
                         <i className="fa fa-certificate w3-xxlarge"></i>
                         <p>CERTIFICATES</p>
                     </span>
-                    <span onClick={RENDER_SKILLS} className="w3-bar-item w3-button w3-padding-large w3-hover-black">
+                    <span onClick={RENDER_SKILLS} className="w3-bar-item w3-button w3-padding-large w3-hover-black" id="SKILLS">
                         <i className="fa fa-hand-paper-o w3-xxlarge"></i>
                         <p>SKILLS</p>
                     </span>
-                    <span onClick={RENDER_PROJECTS} className="w3-bar-item w3-button w3-padding-large w3-hover-black">
+                    <span onClick={RENDER_PROJECTS} className="w3-bar-item w3-button w3-padding-large w3-hover-black" id="PROJECTS">
                         <i className="fa fa-product-hunt w3-xxlarge"></i>
                         <p>PROJECTS</p>
                     </span>                  

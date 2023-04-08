@@ -1,0 +1,16 @@
+
+const content = {
+    home:`
+    Welcome to my portfolio website, If someone were to ask me about my favorite pastime, I would proudly declare that my hobby is computer programming. It's not just a passion or interest, it's an integral part of who I am. Whether it's gardening, shopping, cooking, or playing video games, nothing brings me more joy than writing lines of code from dawn till dusk. The sheer excitement and thrill of creating something new, solving complex problems, and constantly pushing the boundaries of what's possible through technology is what drives me. To me, programming is not just a hobby, it's a way of life.\n
+    As a software developer intern, I am passionate about using technology to solve real-world problems and create innovative solutions. I am a student at the Institute of Technology, University of Moratuwa, where I have gained a strong foundation in programming languages such as Javascript (both client-side and Server-side) and Python.\n
+    During my internship, I have had the opportunity to work on several projects that have allowed me to apply my knowledge and skills in a practical setting.My sharp attention to detail and passion for teamwork have allowed me to produce exceptional results alongside my colleagues. I am a lifelong learner who is constantly seeking new opportunities to expand my horizons and stay ahead of the curve with cutting-edge technologies and industry trends.
+    `,
+    education: `
+    Welcome to my portfolio website, where I am thrilled to showcase my educational journey and achievements.\n
+    From my early years at A/St. Joseph's College, where I completed my primary and ordinary level education, to my advanced level studies at Central College under the physical science, and finally, pursuing higher education at the Institute of Technology University of Moratuwa under the Information Technology domain, my education has been a fulfilling and enriching experience. \n
+    My time at St. Joseph's College instilled in me a strong foundation in fundamental subjects, while my studies at Central College honed my scientific and analytical skills. During my advanced level studies, I was able to explore my interests in the physical sciences and develop a deeper understanding of complex concepts. Continuing my education at the Institute of Technology University of Moratuwa under the Information Technology domain has been an exciting journey.\n
+    I have had the opportunity to learn from expert faculty members and engage in hands-on projects that have enabled me to apply theoretical knowledge to real-world scenarios. Through my studies, I have gained proficiency in various programming languages, software development, database management, and other critical IT skills. My education has prepared me for a career in the dynamic and ever-evolving field of Information Technology. With my strong foundation in fundamental subjects, scientific and analytical skills, and expertise in IT, I am confident in my ability to make a valuable contribution to any organization.
+    `
+}
+
+export default content;

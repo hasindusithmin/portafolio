@@ -7,7 +7,7 @@ import certificate from "./certificate.gif"
 import verified from "./verified.gif"
 import blueprint from "./blueprint.gif"
 import Footer from './components/Footer';
-
+import content from './content';
 function App() {
 
   const [SHOW_HOME, SET_SHOW_HOME] = useState(true);
@@ -16,9 +16,31 @@ function App() {
   const [SHOW_SKILLS, SET_SHOW_SKILLS] = useState(false);
   const [SHOW_PROJECT, SET_SHOW_PROJECT] = useState(false);
 
-  const [PROJECTS, SET_PROJECTS] = useState(null)
+  const [PROJECTS, SET_PROJECTS] = useState(null);
+  const WIDGETS = ['HOME', 'EDUCATION', 'CERTIFICATES', 'SKILLS', 'PROJECTS']
 
-  const RENDER_HOME = () => {
+  const colored = (ID) => {
+    WIDGETS.forEach(WIDGET => {
+      if (WIDGET === ID) {
+        document.getElementById(WIDGET).style.backgroundColor = 'black';
+      }
+      else {
+        document.getElementById(WIDGET).style.backgroundColor = '';
+      }
+    })
+  }
+
+  const findID = event => {
+    if (event.target.id) {
+      colored(event.target.id)
+    }
+    else {
+      colored(event.target.parentNode.id)
+    }
+  }
+
+  const RENDER_HOME = (e) => {
+    findID(e);
     SET_SHOW_HOME(true)
     SET_SHOW_EDU(false)
     SET_SHOW_CERT(false)
@@ -26,7 +48,8 @@ function App() {
     SET_SHOW_PROJECT(false)
   }
 
-  const RENDER_EDU = () => {
+  const RENDER_EDU = (e) => {
+    findID(e);
     SET_SHOW_HOME(false)
     SET_SHOW_EDU(true)
     SET_SHOW_CERT(false)
@@ -34,7 +57,8 @@ function App() {
     SET_SHOW_PROJECT(false)
   }
 
-  const RENDER_CERT = () => {
+  const RENDER_CERT = (e) => {
+    findID(e);
     SET_SHOW_HOME(false)
     SET_SHOW_EDU(false)
     SET_SHOW_CERT(true)
@@ -42,7 +66,8 @@ function App() {
     SET_SHOW_PROJECT(false)
   }
 
-  const RENDER_SKILLS = () => {
+  const RENDER_SKILLS = (e) => {
+    findID(e);
     SET_SHOW_HOME(false)
     SET_SHOW_EDU(false)
     SET_SHOW_CERT(false)
@@ -50,8 +75,9 @@ function App() {
     SET_SHOW_PROJECT(false)
   }
 
-  const RENDER_PROJECTS = () => {
-    fetch('https://gist.githubusercontent.com/hasindusithmin/ce9d14320e2e891a79b775d55ddc24b7/raw/455a5a5485fde8594d06259017c05f12f6edfaae/projects.json')
+  const RENDER_PROJECTS = (e) => {
+    findID(e);
+    fetch('https://gist.githubusercontent.com/hasindusithmin/ce9d14320e2e891a79b775d55ddc24b7/raw/d9642b02ea049d689c99994bd060354dd9902e82/projects.json')
       .then(res => res.json())
       .then(data => {
         SET_PROJECTS(data)
@@ -87,6 +113,34 @@ function App() {
     'Version control': ['github.png']
   }
 
+  const openNewWindow = (url) => {
+    let w = 800;
+    let h = 500;
+    let left = (window.screen.width / 2) - (w / 2);
+    let top = (window.screen.height / 2) - (h / 2);
+    window.open(url, '_blank', 'width=' + w + ', height=' + h + ', left=' + left + ', top=' + top);
+  }
+
+  const displayTXT = (ID, text) => {
+    const textEl = document.getElementById(ID);
+
+    let i = 0;
+
+    function writeText() {
+      if (text[i] === '\n') {
+        const br = document.createElement('br');
+        textEl.appendChild(br)
+      }
+      textEl.innerHTML += text[i];
+      i++;
+
+      if (i > text.length - 1) {
+        clearInterval(intervalId);
+      }
+    }
+    const intervalId = setInterval(writeText, 25)
+  }
+
   return (
     <>
       <Navbar
@@ -102,11 +156,11 @@ function App() {
 
         {
           SHOW_HOME &&
-          <div>
+          <div onLoad={() => { displayTXT('homeTXT', content['home']) }}>
             <header className="w3-container w3-padding-32 w3-center w3-black" id="home">
-              <h1 className="w3-jumbo"><span className="w3-hide-small">I'm</span> Hasindu Sithmin.</h1>
-              <p className='w3-xxlarge'>A Developer</p>
-              <div className='w3-center'>
+              <h1 className="w3-jumbo w3-animate-top"><span className="w3-hide-small">I'm</span> Hasindu Sithmin.</h1>
+              <p className='w3-xxlarge'><span className='w3-animate-left' >A</span> <span className='w3-animate-right'>Developer</span></p>
+              <div className='w3-center w3-animate-bottom'>
                 <img src="./hasindu.jpg" alt="profile_side" className="w3-image w3-opacity w3-round-large" width="50%" />
               </div>
             </header>
@@ -114,15 +168,7 @@ function App() {
               <h2 className="w3-text-light-grey">ABOUT ME</h2>
               <hr className="w3-opacity" />
               <div className='w3-text-white'>
-                <p>
-                  Welcome to my portfolio website, If someone were to ask me about my favorite pastime, I would proudly declare that my hobby is computer programming. It's not just a passion or interest, it's an integral part of who I am. Whether it's gardening, shopping, cooking, or playing video games, nothing brings me more joy than writing lines of code from dawn till dusk. The sheer excitement and thrill of creating something new, solving complex problems, and constantly pushing the boundaries of what's possible through technology is what drives me. To me, programming is not just a hobby, it's a way of life.
-                </p>
-                <p>
-                  As a software developer intern, I am passionate about using technology to solve real-world problems and create innovative solutions. I am a student at the Institute of Technology, University of Moratuwa, where I have gained a strong foundation in programming languages such as Javascript (both client-side and Server-side) and Python.
-                </p>
-                <p>
-                  During my internship, I have had the opportunity to work on several projects that have allowed me to apply my knowledge and skills in a practical setting.My sharp attention to detail and passion for teamwork have allowed me to produce exceptional results alongside my colleagues. I am a lifelong learner who is constantly seeking new opportunities to expand my horizons and stay ahead of the curve with cutting-edge technologies and industry trends.
-                </p>
+                <p id='homeTXT'></p>
               </div>
             </div>
           </div>
@@ -130,24 +176,13 @@ function App() {
 
         {
           SHOW_EDU &&
-          <div className="w3-content w3-justify w3-text-grey w3-padding-64">
-            <h2 className="w3-text-light-grey">EDUCATION</h2>
+          <div className="w3-content w3-justify w3-text-grey w3-padding-64" onLoad={() => { displayTXT('eduTXT', content['education']) }}>
+            <h2 className="w3-text-light-grey w3-animate-left" id='eduHead'>EDUCATION</h2>
             <hr style={{ width: '200px' }} className="w3-opacity" />
             <div className='w3-center'>
               <img src={diploma} alt="diploma" className='w3-image w3-sepia-max' width="50%" />
             </div>
-            <p className='w3-text-white'>
-              Welcome to my portfolio website, where I am thrilled to showcase my educational journey and achievements. From my early years at A/St. Joseph's College, where I completed my primary and ordinary level education, to my advanced level studies at Central College under the physical science, and finally, pursuing higher education at the Institute of Technology University of Moratuwa under the Information Technology domain, my education has been a fulfilling and enriching experience.
-            </p>
-            <p className='w3-text-white'>
-              My time at St. Joseph's College instilled in me a strong foundation in fundamental subjects, while my studies at Central College honed my scientific and analytical skills. During my advanced level studies, I was able to explore my interests in the physical sciences and develop a deeper understanding of complex concepts.
-            </p>
-            <p className='w3-text-white'>
-              Continuing my education at the Institute of Technology University of Moratuwa under the Information Technology domain has been an exciting journey. I have had the opportunity to learn from expert faculty members and engage in hands-on projects that have enabled me to apply theoretical knowledge to real-world scenarios. Through my studies, I have gained proficiency in various programming languages, software development, database management, and other critical IT skills.
-            </p>
-            <p className='w3-text-white'>
-              My education has prepared me for a career in the dynamic and ever-evolving field of Information Technology. With my strong foundation in fundamental subjects, scientific and analytical skills, and expertise in IT, I am confident in my ability to make a valuable contribution to any organization.
-            </p>
+            <p className='w3-text-white' id='eduTXT'></p>
           </div>
         }
 
@@ -260,15 +295,15 @@ function App() {
                     }
                   </div>
                   <div className='w3-padding'>
-                    <a href={project_url} className='w3-button  w3-round-large' target="_blank" rel="noreferrer">
+                    <span onClick={() => { openNewWindow(project_url) }} className='w3-button  w3-round-large' target="_blank" rel="noreferrer">
                       <img src="/devimages/chrome.png" alt='web2' width="35" height="35" />&nbsp;<span className='w3-hide-small'>Project URL</span>
-                    </a>
+                    </span>
                     &nbsp;
                     {
                       github &&
-                      <a href={github} className='w3-button w3-right w3-round-large' target="_blank" rel="noreferrer">
+                      <span onClick={() => { openNewWindow(github) }} className='w3-button w3-right w3-round-large' target="_blank" rel="noreferrer">
                         <img src="/devimages/new-github.png" alt='github' width="35" height="35" />&nbsp;<span className='w3-hide-small'>Source Code</span>
-                      </a>
+                      </span>
                     }
                   </div>
                   <p className='w3-justify'>{details}</p>
