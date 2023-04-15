@@ -1,3 +1,13 @@
+
+ul li {
+  line-height: 1.8; /* Adjust the value to increase or decrease the line spacing */
+  list-style-type: none;
+}
+
+ul {
+  padding: 0px;
+}
+
 body,
 h1,
 h2,

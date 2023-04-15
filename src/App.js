@@ -2,12 +2,14 @@
 import './App.css';
 import Navbar from './components/Navbar';
 import { useState } from 'react';
+import me from "./hasindu.jpg"
 import diploma from "./diploma.gif"
 import certificate from "./certificate.gif"
 import verified from "./verified.gif"
 import blueprint from "./blueprint.gif"
 import Footer from './components/Footer';
 import content from './content';
+import Certificates from './components/Certificates';
 function App() {
 
   const [SHOW_HOME, SET_SHOW_HOME] = useState(true);
@@ -88,8 +90,7 @@ function App() {
     SET_SHOW_SKILLS(false)
     SET_SHOW_PROJECT(true)
   }
-
-  const CERTS = [
+  const [CERTS, setCERTS] = useState([
     {
       src: "https://hasindusithmin.github.io/certificates/codl/",
       desc: "Certificate program on full stack development .Courses are developed by the Departments of Computer Science and Engineering and Information Technology of the University of Moratuwa in collaboration with industry professionals."
@@ -102,7 +103,7 @@ function App() {
       src: "https://hasindusithmin.github.io/certificates/hackerrank/",
       desc: "I followed HackerRank to get certified in technical skills by taking the HackerRank Skills Certification Test."
     }
-  ]
+  ]);
 
   const Skills = {
     'Programming languages': ['java.svg', 'javascript.svg', 'nodejs.png', 'python.svg'],
@@ -141,6 +142,7 @@ function App() {
     const intervalId = setInterval(writeText, 25)
   }
 
+
   return (
     <>
       <Navbar
@@ -156,33 +158,33 @@ function App() {
 
         {
           SHOW_HOME &&
-          <div onLoad={() => { displayTXT('homeTXT', content['home']) }}>
+          <>
             <header className="w3-container w3-padding w3-center w3-black" id="home">
-              <h1 className="w3-jumbo w3-animate-top"><span className="w3-hide-small">I'm</span> Hasindu Sithmin</h1>
-              <p className='w3-xxlarge'><span className='w3-animate-left' >A</span> <span className='w3-animate-right'>Developer</span></p>
-              <div className='w3-center w3-animate-zoom'>
-                <img src="./hasindu.jpg" alt="profile_side" className="w3-image w3-opacity w3-round-large" style={{width:'500px'}} />
-              </div>
+              <h1 className="w3-jumbo w3-animate-top">Hasindu Sithmin</h1>
+              <p className='w3-xxlarge'>
+                I am a developer 💻👨‍💻
+              </p>
             </header>
-            <div className="w3-content w3-justify w3-text-grey">
-              <h2 className="w3-text-light-grey">ABOUT ME</h2>
-              <hr className="w3-opacity" />
-              <div className='w3-text-white'>
-                <p id='homeTXT'></p>
+            <div className="w3-content w3-justify w3-text-grey" onLoad={() => { displayTXT('homeTxt', content['home']) }}>
+              <h2 className="w3-text-light-grey w3-animate-left" id='eduHead'>ABOUT ME</h2>
+              <hr style={{ width: '200px' }} className="w3-opacity" />
+              <div className='w3-center w3-animate-zoom'>
+                <img src={me} alt="diploma" className='w3-image w3-round' width="50%" />
               </div>
+              <p className='w3-text-white' id='homeTxt'></p>
             </div>
-          </div>
+          </>
         }
 
         {
           SHOW_EDU &&
-          <div className="w3-content w3-justify w3-text-grey w3-padding-64" onLoad={() => { displayTXT('eduTXT', content['education']) }}>
+          <div className="w3-content w3-justify w3-text-grey w3-padding-64" onLoad={() => { displayTXT('eduTxt', content['education']) }}>
             <h2 className="w3-text-light-grey w3-animate-left" id='eduHead'>EDUCATION</h2>
             <hr style={{ width: '200px' }} className="w3-opacity" />
             <div className='w3-center w3-animate-zoom'>
               <img src={diploma} alt="diploma" className='w3-image w3-sepia-max' width="50%" />
             </div>
-            <p className='w3-text-white' id='eduTXT'></p>
+            <p className='w3-text-white' id='eduTxt'></p>
           </div>
         }
 
@@ -195,30 +197,17 @@ function App() {
             <div className='w3-center w3-animate-zoom'>
               <img src={certificate} alt="certificate" className='w3-image w3-sepia-max' width="50%" />
             </div>
-            <div className='w3-text-white'>
-              <p>
-                I have obtained a number of certifications in various subjects from the University of Moratuwa, Hackerrank, and Kaggle.
-              </p>
-              <p>
-                From the University of Moratuwa, I have received certification in Python programming, web development, frontend web development, backend web development, and professional practice.
-              </p>
-              <p>
-                Through Hackerrank, I have earned certifications in Java, JavaScript, NodeJS, React, and Python.
-              </p>
-              <p>
-                Finally, from Kaggle, I have received certification in Pandas, data visualization, and machine learning. These certifications demonstrate my knowledge and expertise in a variety of fields related to computer science and technology.
-              </p>
-            </div>
+            <ul className='w3-text-white'>
+              <li>🎓🏅 I have obtained a number of certifications in various subjects from prestigious institutions, including the University of Moratuwa, Hackerrank, and Kaggle.</li>
+              <li>👨‍💻 From the University of Moratuwa, I have received certifications in a range of subjects, including 🐍 Python programming, 💻 web development, 🎨 frontend web development, 🖥️ backend web development, and 🤝 professional practice.</li>
+              <li>💻 Through Hackerrank, I have earned certifications in 🍵 Java, 🟨 JavaScript, 🔵 NodeJS, ⚛️ React, and 🐍 Python, showcasing my proficiency in some of the most widely used programming languages.</li>
+              <li>📊 Finally, from Kaggle, I have received certifications in 🐼 Pandas, 📈 data visualization, and 🤖 machine learning. These certifications highlight my knowledge and expertise in areas related to data science and analysis.</li>
+              <li>🌟 These certifications demonstrate my dedication to continuous learning and development, and my commitment to staying up-to-date with the latest trends and technologies in the field of computer science.</li>
+            </ul>
             {
               CERTS &&
               CERTS.map(({ src, desc }) => (
-                <p key={Math.random()}>
-                  <div className='w3-card w3-round-large w3-white'>
-                    <iframe title={desc} src={src} frameBorder="0" width='100%' height={window.navigator.userAgentData.mobile ? '600px' : '850px'} />
-                  </div>
-                  <p className='w3-padding w3-text-white'>{desc}</p>
-                  <hr style={{ width: '300px' }} className="w3-opacity" />
-                </p>
+                <Certificates key={Math.random()} src={src} desc={desc} />
               ))
             }
           </div>
@@ -226,15 +215,19 @@ function App() {
 
         {
           SHOW_SKILLS &&
-          <div className="w3-content w3-justify w3-text-grey w3-padding-64">
+          <div className="w3-content w3-justify w3-text-grey w3-padding-64" >
             <h2 className="w3-text-light-grey w3-animate-left">SKILLS</h2>
             <hr style={{ width: '200px' }} className="w3-opacity" />
             <div className='w3-center w3-animate-zoom'>
               <img src={verified} alt="skills" className='w3-image w3-sepia-max' width="50%" />
             </div>
-            <p className='w3-text-white'>
-              As a highly skilled and well-rounded programmer, I have a diverse skill set that includes proficiency in programming languages such as JavaScript, Node.js, Python, and Java. I am also proficient in HTML and CSS, and have experience with various frameworks including FastAPI, Express, Fiber, Spring Boot, and React. My knowledge of REST API and OOP principles allows me to effectively design and implement software solutions, and my familiarity with both SQL and NoSQL databases such as MySQL, Postgres, MongoDB, Firebase, and Supabase gives me the ability to work with a wide range of data storage options. In addition to my technical skills, I have experience using version control systems such as Github and am proficient in operating systems like Fedora. My strong logical thinking, excellent communication abilities, and ability to quickly learn new technologies make me a valuable asset to any team, and I am committed to producing high-quality work.
-            </p>
+            <ul className='w3-text-white'>
+              <li>💻👨‍💻 As a highly skilled and well-rounded programmer, I have a diverse skill set that includes proficiency in programming languages such as JavaScript, Node.js, Python, and Java.</li>
+              <li>🧑‍💻 I am also proficient in HTML and CSS, and have experience with various frameworks including FastAPI, Express, Fiber, Spring Boot, and React.</li>
+              <li>🔍 My knowledge of REST API and OOP principles allows me to effectively design and implement software solutions, and my familiarity with both SQL and NoSQL databases such as MySQL, Postgres, MongoDB, Firebase, and Supabase gives me the ability to work with a wide range of data storage options.</li>
+              <li>🚀 In addition to my technical skills, I have experience using version control systems such as Github and am proficient in operating systems like Fedora.</li>
+              <li>🧠 My strong logical thinking, excellent communication abilities, and ability to quickly learn new technologies make me a valuable asset to any team, and I am committed to producing high-quality work.</li>
+            </ul>
             {Object.entries(Skills).map(([key, value]) => (
               <p className='w3-text-white' key={Math.random()}>
                 <h3>{key}</h3>
@@ -253,9 +246,9 @@ function App() {
           <div className="w3-content w3-justify w3-text-grey w3-padding-64">
             <h2 className="w3-text-light-grey w3-animate-left">PROJECTS</h2>
             <hr style={{ width: '200px' }} className="w3-opacity" />
-            <div className='w3-center w3-animate-zoom'>
+            {/* <div className='w3-center w3-animate-zoom'>
               <img src={blueprint} alt="blueprint" className='w3-image w3-sepia-max' width="50%" />
-            </div>
+            </div> */}
             {
               PROJECTS &&
               PROJECTS.map(({ project_name, associated_with, project_url, github, languages, frameworks, packages, details }) => (
