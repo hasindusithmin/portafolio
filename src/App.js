@@ -157,14 +157,14 @@ function App() {
         {
           SHOW_HOME &&
           <div onLoad={() => { displayTXT('homeTXT', content['home']) }}>
-            <header className="w3-container w3-padding-32 w3-center w3-black" id="home">
+            <header className="w3-container w3-padding w3-center w3-black" id="home">
               <h1 className="w3-jumbo w3-animate-top"><span className="w3-hide-small">I'm</span> Hasindu Sithmin</h1>
               <p className='w3-xxlarge'><span className='w3-animate-left' >A</span> <span className='w3-animate-right'>Developer</span></p>
               <div className='w3-center w3-animate-zoom'>
-                <img src="./hasindu.jpg" alt="profile_side" className="w3-image w3-opacity w3-round-large" width="50%" />
+                <img src="./hasindu.jpg" alt="profile_side" className="w3-image w3-opacity w3-round-large" style={{width:'500px'}} />
               </div>
             </header>
-            <div className="w3-content w3-justify w3-text-grey w3-padding-64">
+            <div className="w3-content w3-justify w3-text-grey">
               <h2 className="w3-text-light-grey">ABOUT ME</h2>
               <hr className="w3-opacity" />
               <div className='w3-text-white'>
