@@ -167,9 +167,16 @@ function App() {
             <h2 className="w3-text-gray w3-animate-left" id='eduHead'>ABOUT ME</h2>
             <hr style={{ width: '200px' }} className="w3-opacity" />
             <div className='w3-center w3-animate-zoom'>
-              <img src={me} alt="diploma" className='w3-image w3-circle' width="50%" />
+              <img src={me} alt="Hasindu" className='w3-image w3-circle' width="50%" />
             </div>
-            <p className='w3-text-gray' id='homeTxt'></p>
+            <p className='w3-text-gray'>
+              <Typewriter
+                key={ID}
+                words={["👋 Hi, I'm Hasindu, I am a highly motivated 💪🏼 and  enthusiastic individual 🤙 with a passion for software engineering 👨🏻‍💻. I am always looking for new challenges 🧗🏻 and opportunities🚪 to grow 🌱, and I believe that my 🤹skills and 🧓🏽experience make me an excellent candidate for any project 🚧. If you're looking for someone who is self-motivated 🎯, a team player ⚽, and a skilled problem solver 🕵🏻‍♀️, then look no further than me ✋."]}
+                typeSpeed={50}
+                cursor="|"
+              />
+            </p>
           </div>
         }
 
@@ -239,53 +246,53 @@ function App() {
               </ul>
             </div>
             <ul className='w3-text-gray w3-hide-large w3-hide-medium' style={{ margin: 'auto' }}>
-                <li>
-                  <Typewriter
-                    key={ID}
-                    words={["🎓🏅 I have obtained a number of certifications in various subjects from prestigious institutions, including the University of Moratuwa, Hackerrank, and Kaggle."]}
-                    typeSpeed={50}
-                    cursor="|"
-                  />
-                </li>
-                <li>
-                  <Typewriter
-                    key={ID}
-                    words={["👨‍💻 From the University of Moratuwa, I have received certifications in a range of subjects, including 🐍 Python programming, 💻 web development, 🎨 frontend web development, 🖥️ backend web development, and 🤝 professional practice."]}
-                    typeSpeed={60}
-                    cursor="|"
-                  />
-                </li>
-                <li>
-                  <Typewriter
-                    key={ID}
-                    words={["💻 Through Hackerrank, I have earned certifications in 🍵 Java, 🟨 JavaScript, 🔵 NodeJS, ⚛️ React, and 🐍 Python, showcasing my proficiency in some of the most widely used programming languages."]}
-                    typeSpeed={70}
-                    cursor="|"
-                  />
-                </li>
-                <li>
-                  <Typewriter
-                    key={ID}
-                    words={["📊 Finally, from Kaggle, I have received certifications in 🐼 Pandas, 📈 data visualization, and 🤖 machine learning. These certifications highlight my knowledge and expertise in areas related to data science and analysis."]}
-                    typeSpeed={80}
-                    cursor="|"
-                  />
-                </li>
-                <li>
-                  <Typewriter
-                    key={ID}
-                    words={["🌟 These certifications demonstrate my dedication to continuous learning and development, and my commitment to staying up-to-date with the latest trends and technologies in the field of computer science."]}
-                    typeSpeed={90}
-                    cursor="|"
-                  />
-                </li>
-              </ul>
-              {
-                CERTS &&
-                CERTS.map(({ src, desc }) => (
-                  <Certificates key={Math.random()} src={src} desc={desc} />
-                ))
-              }
+              <li>
+                <Typewriter
+                  key={ID}
+                  words={["🎓🏅 I have obtained a number of certifications in various subjects from prestigious institutions, including the University of Moratuwa, Hackerrank, and Kaggle."]}
+                  typeSpeed={50}
+                  cursor="|"
+                />
+              </li>
+              <li>
+                <Typewriter
+                  key={ID}
+                  words={["👨‍💻 From the University of Moratuwa, I have received certifications in a range of subjects, including 🐍 Python programming, 💻 web development, 🎨 frontend web development, 🖥️ backend web development, and 🤝 professional practice."]}
+                  typeSpeed={60}
+                  cursor="|"
+                />
+              </li>
+              <li>
+                <Typewriter
+                  key={ID}
+                  words={["💻 Through Hackerrank, I have earned certifications in 🍵 Java, 🟨 JavaScript, 🔵 NodeJS, ⚛️ React, and 🐍 Python, showcasing my proficiency in some of the most widely used programming languages."]}
+                  typeSpeed={70}
+                  cursor="|"
+                />
+              </li>
+              <li>
+                <Typewriter
+                  key={ID}
+                  words={["📊 Finally, from Kaggle, I have received certifications in 🐼 Pandas, 📈 data visualization, and 🤖 machine learning. These certifications highlight my knowledge and expertise in areas related to data science and analysis."]}
+                  typeSpeed={80}
+                  cursor="|"
+                />
+              </li>
+              <li>
+                <Typewriter
+                  key={ID}
+                  words={["🌟 These certifications demonstrate my dedication to continuous learning and development, and my commitment to staying up-to-date with the latest trends and technologies in the field of computer science."]}
+                  typeSpeed={90}
+                  cursor="|"
+                />
+              </li>
+            </ul>
+            {
+              CERTS &&
+              CERTS.map(({ src, desc }) => (
+                <Certificates key={Math.random()} src={src} desc={desc} />
+              ))
+            }
           </div>
         }
 
@@ -404,7 +411,7 @@ function App() {
                       </span>
                     }
                   </div>
-                  <p className='w3-justify' style={{overflow:'hidden'}}>{details}</p>
+                  <p className='w3-justify' style={{ overflow: 'hidden' }}>{details}</p>
                 </div>
               ))
             }
