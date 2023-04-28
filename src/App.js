@@ -179,7 +179,7 @@ function App() {
             <h2 className="w3-text-gray w3-animate-left" id='eduHead'>EDUCATION</h2>
             <hr style={{ width: '200px' }} className="w3-opacity" />
             <div className='w3-center w3-animate-zoom'>
-              <img src={diploma} alt="diploma" className='w3-image w3-circle w3-sepia-max' width="50%" />
+              <img src={diploma} alt="diploma" className='w3-image w3-circle ' width="50%" />
             </div>
             <p className='w3-text-gray' id='eduTxt'></p>
           </div>
@@ -192,7 +192,7 @@ function App() {
             <h2 className="w3-text-gray w3-animate-left">CERTIFICATES</h2>
             <hr style={{ width: '200px' }} className="w3-opacity" />
             <div className='w3-center w3-animate-zoom'>
-              <img src={certificate} alt="certificate" className='w3-image w3-circle w3-sepia-max' width="50%" />
+              <img src={certificate} alt="certificate" className='w3-image w3-circle ' width="50%" />
             </div>
             <div style={{ height: 270, display: 'flex', alignItems: 'center' }} className='w3-hide-small'>
               <ul className='w3-text-gray' style={{ margin: 'auto' }}>
@@ -295,7 +295,7 @@ function App() {
             <h2 className="w3-text-gray w3-animate-left">SKILLS</h2>
             <hr style={{ width: '200px' }} className="w3-opacity" />
             <div className='w3-center w3-animate-zoom'>
-              <img src={verified} alt="skills" className='w3-image w3-circle w3-sepia-max' width="50%" />
+              <img src={verified} alt="skills" className='w3-image w3-circle ' width="50%" />
             </div>
             <div style={{ height: 405, display: 'flex', alignItems: 'center' }}>
 
@@ -352,7 +352,7 @@ function App() {
             <h2 className="w3-text-gray w3-animate-left">PROJECTS</h2>
             <hr style={{ width: '200px' }} className="w3-opacity" />
             {/* <div className='w3-center w3-animate-zoom'>
-              <img src={blueprint} alt="blueprint" className='w3-image w3-sepia-max' width="50%" />
+              <img src={blueprint} alt="blueprint" className='w3-image ' width="50%" />
             </div> */}
             {
               PROJECTS &&
@@ -404,7 +404,7 @@ function App() {
                       </span>
                     }
                   </div>
-                  <p className='w3-justify'>{details}</p>
+                  <p className='w3-justify' style={{overflow:'hidden'}}>{details}</p>
                 </div>
               ))
             }

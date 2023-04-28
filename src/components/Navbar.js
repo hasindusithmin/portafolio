@@ -7,6 +7,11 @@ import tre from "./image/giphy3.gif"
 import quattro from "./image/giphy4.gif"
 import cinque from "./image/giphy5.gif"
 import devicon from "./javascript/dev"
+import ABOUT from "../about.gif"
+import EDU from "../diploma.gif"
+import CERT from "../certificate.gif"
+import SKILLS from "../verified.gif"
+import PROJ from "../blueprint.gif"
 
 export default function Navbar({ RENDER_HOME, RENDER_EDU, RENDER_CERT, RENDER_SKILLS, RENDER_PROJECTS, ID }) {
 
@@ -44,7 +49,7 @@ export default function Navbar({ RENDER_HOME, RENDER_EDU, RENDER_CERT, RENDER_SK
 
     return (
         <>
-            <nav className="w3-sidebar w3-bar-block w3-small w3-hide-small w3-hide-medium w3-center"  style={{ backgroundColor: '#80808014' }}>
+            <nav className="w3-sidebar w3-bar-block w3-small w3-hide-small w3-hide-medium w3-center" style={{ backgroundColor: '#80808014' }}>
                 <div className="w3-content w3-section" style={{ maxWidth: 500 }}>
                     {
                         image &&
@@ -57,8 +62,8 @@ export default function Navbar({ RENDER_HOME, RENDER_EDU, RENDER_CERT, RENDER_SK
                     }
                 </div>
                 <span onClick={RENDER_HOME} className="w3-bar-item w3-button w3-padding-large" id="HOME" style={{ backgroundColor: '#80808061' }}>
-                    <i className="fa fa-home w3-xxlarge"></i>
-                    <p>HOME</p>
+                    <i className="fa fa-info w3-xxlarge"></i>
+                    <p>ABOUT</p>
                 </span>
                 <span onClick={RENDER_EDU} className="w3-bar-item w3-button w3-padding-large" id="EDUCATION">
                     <i className="fa fa-university w3-xxlarge"></i>
@@ -78,13 +83,13 @@ export default function Navbar({ RENDER_HOME, RENDER_EDU, RENDER_CERT, RENDER_SK
                 </span>
             </nav>
 
-            <div className="w3-top w3-hide-large" id="myNavbar">
-                <div className="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
-                    <span onClick={RENDER_HOME} className="w3-bar-item w3-button" style={{ width: '20%' }}>HOME</span>
-                    <span onClick={RENDER_EDU} className="w3-bar-item w3-button" style={{ width: '20%' }}>EDU</span>
-                    <span onClick={RENDER_CERT} className="w3-bar-item w3-button" style={{ width: '20%' }}>CERT</span>
-                    <span onClick={RENDER_SKILLS} className="w3-bar-item w3-button" style={{ width: '20%' }}>SKILLS</span>
-                    <span onClick={RENDER_PROJECTS} className="w3-bar-item w3-button" style={{ width: '20%' }}>PROJE</span>
+            <div className="w3-top w3-hide-large" id="myNavbar" style={{ backgroundColor: '#80808014', padding: 5 }}>
+                <div className="w3-bar w3-opacity w3-hover-opacity-off w3-center w3-small">
+                    <span onClick={RENDER_HOME} className="w3-bar-item" style={{ width: '20%', padding: 0 }}><img src={ABOUT} alt="ABOUT" width={50} height={50} /></span>
+                    <span onClick={RENDER_EDU} className="w3-bar-item" style={{ width: '20%', padding: 0 }}><img src={EDU} alt="EDU" width={50} height={50} /></span>
+                    <span onClick={RENDER_CERT} className="w3-bar-item" style={{ width: '20%', padding: 0 }}><img src={CERT} alt="CERT" width={50} height={50} /></span>
+                    <span onClick={RENDER_SKILLS} className="w3-bar-item" style={{ width: '20%', padding: 0 }}><img src={SKILLS} alt="SKILLS" width={50} height={50} /></span>
+                    <span onClick={RENDER_PROJECTS} className="w3-bar-item" style={{ width: '20%', padding: 0 }}><img src={PROJ} alt="PROJ" width={50} height={50} /></span>
                 </div>
             </div>
 
