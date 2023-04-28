@@ -1,60 +1,78 @@
 
-import { useEffect,useState } from "react"
-import uno from "./giphy1.gif"
-import due from "./giphy2.gif"
-import tre from "./giphy3.gif"
-import qua from "./giphy4.gif"
-import cin from "./giphy5.gif"
+import { useEffect, useState } from "react"
+import { Typewriter } from 'react-simple-typewriter'
+import uno from "./image/giphy1.gif"
+import due from "./image/giphy2.gif"
+import tre from "./image/giphy3.gif"
+import quattro from "./image/giphy4.gif"
+import cinque from "./image/giphy5.gif"
+import devicon from "./javascript/dev"
 
-export default function Navbar({ RENDER_HOME, RENDER_EDU, RENDER_CERT, RENDER_SKILLS, RENDER_PROJECTS }) {
+export default function Navbar({ RENDER_HOME, RENDER_EDU, RENDER_CERT, RENDER_SKILLS, RENDER_PROJECTS, ID }) {
 
-    const [slideIndex, setSlideIndex] = useState(0);
-
+    let iOne = 0, iTwo = 0;
+    const slides = [uno, due, tre, quattro, cinque];
+    const [image, setImage] = useState(uno);
+    const [devPath, setDevPath] = useState('');
+    const [devFile, setDevFile] = useState('');
 
     useEffect(() => {
-        const slideshow = setInterval(() => {
-            setSlideIndex((prevIndex) =>
-                prevIndex === slides.length - 1 ? 0 : prevIndex + 1
-            );
+        const intervalId = setInterval(() => {
+            if (iOne === slides.length - 1) {
+                iOne = 0;
+                setImage(slides[iOne])
+            }
+            else {
+                iOne++;
+                setImage(slides[iOne])
+            }
+            if (iTwo === Object.keys(devicon).length - 1) {
+                iTwo = 0;
+                setDevPath(Object.keys(devicon)[iTwo].toLowerCase())
+                setDevFile(Object.values(devicon)[iTwo])
+            }
+            else {
+                iTwo++;
+                setDevPath(Object.keys(devicon)[iTwo].toLowerCase())
+                setDevFile(Object.values(devicon)[iTwo])
+            }
         }, 3000);
-
-        return () => clearInterval(slideshow);
+        return () => clearInterval(intervalId);
     }, []);
 
-    const slides = [uno, due, tre, qua, cin];
 
 
     return (
         <>
-            <nav className="w3-sidebar w3-bar-block w3-small w3-hide-small w3-hide-medium w3-center">
+            <nav className="w3-sidebar w3-bar-block w3-small w3-hide-small w3-hide-medium w3-center"  style={{ backgroundColor: '#80808014' }}>
                 <div className="w3-content w3-section" style={{ maxWidth: 500 }}>
-                    {slides.map((slide, index) => (
+                    {
+                        image &&
                         <img
-                            key={index}
-                            src={slide}
+                            src={image}
                             alt="profile"
-                            className={`w3-circle ${slideIndex === index ? 'active' : ''}`}
-                            style={{ width: '100%', display: slideIndex === index ? 'block' : 'none' }}
+                            className="w3-circle"
+                            style={{ width: '100%' }}
                         />
-                    ))}
+                    }
                 </div>
-                <span onClick={RENDER_HOME} className="w3-bar-item w3-button w3-padding-large w3-hover-black" style={{ backgroundColor: 'black' }} id="HOME">
+                <span onClick={RENDER_HOME} className="w3-bar-item w3-button w3-padding-large" id="HOME" style={{ backgroundColor: '#80808061' }}>
                     <i className="fa fa-home w3-xxlarge"></i>
                     <p>HOME</p>
                 </span>
-                <span onClick={RENDER_EDU} className="w3-bar-item w3-button w3-padding-large w3-hover-black" id="EDUCATION">
+                <span onClick={RENDER_EDU} className="w3-bar-item w3-button w3-padding-large" id="EDUCATION">
                     <i className="fa fa-university w3-xxlarge"></i>
                     <p>EDUCATION</p>
                 </span>
-                <span onClick={RENDER_CERT} className="w3-bar-item w3-button w3-padding-large w3-hover-black" id="CERTIFICATES">
+                <span onClick={RENDER_CERT} className="w3-bar-item w3-button w3-padding-large" id="CERTIFICATES">
                     <i className="fa fa-certificate w3-xxlarge"></i>
                     <p>CERTIFICATES</p>
                 </span>
-                <span onClick={RENDER_SKILLS} className="w3-bar-item w3-button w3-padding-large w3-hover-black" id="SKILLS">
+                <span onClick={RENDER_SKILLS} className="w3-bar-item w3-button w3-padding-large" id="SKILLS">
                     <i className="fa fa-hand-paper-o w3-xxlarge"></i>
                     <p>SKILLS</p>
                 </span>
-                <span onClick={RENDER_PROJECTS} className="w3-bar-item w3-button w3-padding-large w3-hover-black" id="PROJECTS">
+                <span onClick={RENDER_PROJECTS} className="w3-bar-item w3-button w3-padding-large" id="PROJECTS">
                     <i className="fa fa-product-hunt w3-xxlarge"></i>
                     <p>PROJECTS</p>
                 </span>
@@ -69,6 +87,28 @@ export default function Navbar({ RENDER_HOME, RENDER_EDU, RENDER_CERT, RENDER_SK
                     <span onClick={RENDER_PROJECTS} className="w3-bar-item w3-button" style={{ width: '20%' }}>PROJE</span>
                 </div>
             </div>
+
+            <header className="w3-container w3-padding w3-center" id="home">
+                <h1 className="w3-jumbo w3-hide-small">
+                    <Typewriter
+                        key={ID}
+                        words={["Hasindu Sithmin"]}
+                        typeSpeed={50}
+                        cursor="_"
+                    />
+                </h1>
+                <h1 className="w3-xxlarge w3-padding-64 w3-hide-large w3-hide-medium">
+                    <Typewriter
+                        key={ID}
+                        words={["Hasindu Sithmin"]}
+                        typeSpeed={50}
+                        cursor="_"
+                    />
+                </h1>
+                <div className='w3-xlarge'>
+                    <span>A Developer</span> <span><img className="w3-circle" src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${devPath}/${devFile}.svg`} width={44} title={devPath} /> </span>
+                </div>
+            </header>
 
         </>
     )

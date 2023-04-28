@@ -2,14 +2,16 @@
 import './App.css';
 import Navbar from './components/Navbar';
 import { useState } from 'react';
+import { Typewriter } from 'react-simple-typewriter'
 import me from "./hasindu.jpg"
 import diploma from "./diploma.gif"
 import certificate from "./certificate.gif"
 import verified from "./verified.gif"
-import blueprint from "./blueprint.gif"
 import Footer from './components/Footer';
 import content from './content';
 import Certificates from './components/Certificates';
+import mySkills from './components/javascript/skills';
+
 function App() {
 
   const [SHOW_HOME, SET_SHOW_HOME] = useState(true);
@@ -17,6 +19,7 @@ function App() {
   const [SHOW_CERT, SET_SHOW_CERT] = useState(false);
   const [SHOW_SKILLS, SET_SHOW_SKILLS] = useState(false);
   const [SHOW_PROJECT, SET_SHOW_PROJECT] = useState(false);
+  const [ID, setID] = useState(0)
 
   const [PROJECTS, SET_PROJECTS] = useState(null);
   const WIDGETS = ['HOME', 'EDUCATION', 'CERTIFICATES', 'SKILLS', 'PROJECTS']
@@ -24,7 +27,7 @@ function App() {
   const colored = (ID) => {
     WIDGETS.forEach(WIDGET => {
       if (WIDGET === ID) {
-        document.getElementById(WIDGET).style.backgroundColor = 'black';
+        document.getElementById(WIDGET).style.backgroundColor = '#80808061';
       }
       else {
         document.getElementById(WIDGET).style.backgroundColor = '';
@@ -33,6 +36,8 @@ function App() {
   }
 
   const findID = event => {
+    setID(prevID => prevID + 1)
+    window?.scrollTo({ top: 0, behavior: 'smooth' })
     if (event.target.id) {
       colored(event.target.id)
     }
@@ -151,59 +156,88 @@ function App() {
         RENDER_CERT={RENDER_CERT}
         RENDER_SKILLS={RENDER_SKILLS}
         RENDER_PROJECTS={RENDER_PROJECTS}
+        ID={ID}
       />
 
       <div className="w3-padding-large">
 
-
         {
           SHOW_HOME &&
-          <>
-            <header className="w3-container w3-padding w3-center w3-black" id="home">
-              <h1 className="w3-jumbo w3-animate-top">Hasindu Sithmin</h1>
-              <p className='w3-xxlarge'>
-                I am a developer 💻👨‍💻
-              </p>
-            </header>
-            <div className="w3-content w3-justify w3-text-grey" onLoad={() => { displayTXT('homeTxt', content['home']) }}>
-              <h2 className="w3-text-light-grey w3-animate-left" id='eduHead'>ABOUT ME</h2>
-              <hr style={{ width: '200px' }} className="w3-opacity" />
-              <div className='w3-center w3-animate-zoom'>
-                <img src={me} alt="diploma" className='w3-image w3-round' width="50%" />
-              </div>
-              <p className='w3-text-white' id='homeTxt'></p>
+          <div className="w3-content w3-justify w3-text-gray" onLoad={() => { displayTXT('homeTxt', content['home']) }}>
+            <h2 className="w3-text-gray w3-animate-left" id='eduHead'>ABOUT ME</h2>
+            <hr style={{ width: '200px' }} className="w3-opacity" />
+            <div className='w3-center w3-animate-zoom'>
+              <img src={me} alt="diploma" className='w3-image w3-circle' width="50%" />
             </div>
-          </>
+            <p className='w3-text-gray' id='homeTxt'></p>
+          </div>
         }
 
         {
           SHOW_EDU &&
-          <div className="w3-content w3-justify w3-text-grey w3-padding-64" onLoad={() => { displayTXT('eduTxt', content['education']) }}>
-            <h2 className="w3-text-light-grey w3-animate-left" id='eduHead'>EDUCATION</h2>
+          <div className="w3-content w3-justify w3-text-gray w3-padding-64" onLoad={() => { displayTXT('eduTxt', content['education']) }}>
+            <h2 className="w3-text-gray w3-animate-left" id='eduHead'>EDUCATION</h2>
             <hr style={{ width: '200px' }} className="w3-opacity" />
             <div className='w3-center w3-animate-zoom'>
               <img src={diploma} alt="diploma" className='w3-image w3-sepia-max' width="50%" />
             </div>
-            <p className='w3-text-white' id='eduTxt'></p>
+            <p className='w3-text-gray' id='eduTxt'></p>
           </div>
         }
 
 
         {
           SHOW_CERT &&
-          <div className="w3-content w3-justify w3-text-grey w3-padding-64">
-            <h2 className="w3-text-light-grey w3-animate-left">CERTIFICATES</h2>
+          <div className="w3-content w3-justify w3-text-gray w3-padding-64">
+            <h2 className="w3-text-gray w3-animate-left">CERTIFICATES</h2>
             <hr style={{ width: '200px' }} className="w3-opacity" />
             <div className='w3-center w3-animate-zoom'>
               <img src={certificate} alt="certificate" className='w3-image w3-sepia-max' width="50%" />
             </div>
-            <ul className='w3-text-white'>
-              <li>🎓🏅 I have obtained a number of certifications in various subjects from prestigious institutions, including the University of Moratuwa, Hackerrank, and Kaggle.</li>
-              <li>👨‍💻 From the University of Moratuwa, I have received certifications in a range of subjects, including 🐍 Python programming, 💻 web development, 🎨 frontend web development, 🖥️ backend web development, and 🤝 professional practice.</li>
-              <li>💻 Through Hackerrank, I have earned certifications in 🍵 Java, 🟨 JavaScript, 🔵 NodeJS, ⚛️ React, and 🐍 Python, showcasing my proficiency in some of the most widely used programming languages.</li>
-              <li>📊 Finally, from Kaggle, I have received certifications in 🐼 Pandas, 📈 data visualization, and 🤖 machine learning. These certifications highlight my knowledge and expertise in areas related to data science and analysis.</li>
-              <li>🌟 These certifications demonstrate my dedication to continuous learning and development, and my commitment to staying up-to-date with the latest trends and technologies in the field of computer science.</li>
-            </ul>
+            <div style={{ height: 270, display: 'flex', alignItems: 'center' }}>
+              <ul className='w3-text-gray' style={{ margin: 'auto' }}>
+                <li>
+                  <Typewriter
+                    key={ID}
+                    words={["🎓🏅 I have obtained a number of certifications in various subjects from prestigious institutions, including the University of Moratuwa, Hackerrank, and Kaggle."]}
+                    typeSpeed={50}
+                    cursor="|"
+                  />
+                </li>
+                <li>
+                  <Typewriter
+                    key={ID}
+                    words={["👨‍💻 From the University of Moratuwa, I have received certifications in a range of subjects, including 🐍 Python programming, 💻 web development, 🎨 frontend web development, 🖥️ backend web development, and 🤝 professional practice."]}
+                    typeSpeed={60}
+                    cursor="|"
+                  />
+                </li>
+                <li>
+                  <Typewriter
+                    key={ID}
+                    words={["💻 Through Hackerrank, I have earned certifications in 🍵 Java, 🟨 JavaScript, 🔵 NodeJS, ⚛️ React, and 🐍 Python, showcasing my proficiency in some of the most widely used programming languages."]}
+                    typeSpeed={70}
+                    cursor="|"
+                  />
+                </li>
+                <li>
+                  <Typewriter
+                    key={ID}
+                    words={["📊 Finally, from Kaggle, I have received certifications in 🐼 Pandas, 📈 data visualization, and 🤖 machine learning. These certifications highlight my knowledge and expertise in areas related to data science and analysis."]}
+                    typeSpeed={80}
+                    cursor="|"
+                  />
+                </li>
+                <li>
+                  <Typewriter
+                    key={ID}
+                    words={["🌟 These certifications demonstrate my dedication to continuous learning and development, and my commitment to staying up-to-date with the latest trends and technologies in the field of computer science."]}
+                    typeSpeed={90}
+                    cursor="|"
+                  />
+                </li>
+              </ul>
+            </div>
             {
               CERTS &&
               CERTS.map(({ src, desc }) => (
@@ -215,36 +249,65 @@ function App() {
 
         {
           SHOW_SKILLS &&
-          <div className="w3-content w3-justify w3-text-grey w3-padding-64" >
-            <h2 className="w3-text-light-grey w3-animate-left">SKILLS</h2>
+          <div className="w3-content w3-justify w3-text-gray w3-padding-64" >
+            <h2 className="w3-text-gray w3-animate-left">SKILLS</h2>
             <hr style={{ width: '200px' }} className="w3-opacity" />
             <div className='w3-center w3-animate-zoom'>
               <img src={verified} alt="skills" className='w3-image w3-sepia-max' width="50%" />
             </div>
-            <ul className='w3-text-white'>
-              <li>💻👨‍💻 As a highly skilled and well-rounded programmer, I have a diverse skill set that includes proficiency in programming languages such as JavaScript, Node.js, Python, and Java.</li>
-              <li>🧑‍💻 I am also proficient in HTML and CSS, and have experience with various frameworks including FastAPI, Express, Fiber, Spring Boot, and React.</li>
-              <li>🔍 My knowledge of REST API and OOP principles allows me to effectively design and implement software solutions, and my familiarity with both SQL and NoSQL databases such as MySQL, Postgres, MongoDB, Firebase, and Supabase gives me the ability to work with a wide range of data storage options.</li>
-              <li>🚀 In addition to my technical skills, I have experience using version control systems such as Github and am proficient in operating systems like Fedora.</li>
-              <li>🧠 My strong logical thinking, excellent communication abilities, and ability to quickly learn new technologies make me a valuable asset to any team, and I am committed to producing high-quality work.</li>
-            </ul>
-            {Object.entries(Skills).map(([key, value]) => (
-              <p className='w3-text-white' key={Math.random()}>
-                <h3>{key}</h3>
-                {
-                  value.map(skill => (<span className='w3-white w3-padding w3-light-grey w3-round-large w3-margin-right' title={skill} ><img src={`/devimages/${skill}`} alt={skill} width="30" height="30" /></span>))
-                }
-              </p>
-            ))}
+            <div style={{ height: 405, display: 'flex', alignItems: 'center' }}>
 
+              <ul className='w3-text-gray' style={{ margin: 'auto' }}>
+                <li>
+                  <Typewriter
+                    key={ID}
+                    words={[mySkills[0]]}
+                    typeSpeed={50}
+                    cursor="|"
+                  />
+                </li>
+                <li>
+                  <Typewriter
+                    key={ID}
+                    words={[mySkills[1]]}
+                    typeSpeed={60}
+                    cursor="|"
+                  />
+                </li>
+                <li>
+                  <Typewriter
+                    key={ID}
+                    words={[mySkills[2]]}
+                    typeSpeed={70}
+                    cursor="|"
+                  />
+                </li>
+                <li>
+                  <Typewriter
+                    key={ID}
+                    words={[mySkills[3]]}
+                    typeSpeed={80}
+                    cursor="|"
+                  />
+                </li>
+                <li>
+                  <Typewriter
+                    key={ID}
+                    words={[mySkills[4]]}
+                    typeSpeed={90}
+                    cursor="|"
+                  />
+                </li>
+              </ul>
+            </div>
           </div>
 
         }
 
         {
           SHOW_PROJECT &&
-          <div className="w3-content w3-justify w3-text-grey w3-padding-64">
-            <h2 className="w3-text-light-grey w3-animate-left">PROJECTS</h2>
+          <div className="w3-content w3-justify w3-text-gray w3-padding-64">
+            <h2 className="w3-text-gray w3-animate-left">PROJECTS</h2>
             <hr style={{ width: '200px' }} className="w3-opacity" />
             {/* <div className='w3-center w3-animate-zoom'>
               <img src={blueprint} alt="blueprint" className='w3-image w3-sepia-max' width="50%" />
@@ -252,7 +315,7 @@ function App() {
             {
               PROJECTS &&
               PROJECTS.map(({ project_name, associated_with, project_url, github, languages, frameworks, packages, details }) => (
-                <div className='w3-row w3-padding w3-card w3-round-large w3-white w3-margin' key={project_name}>
+                <div className='w3-row w3-padding w3-card w3-round-large w3-white w3-margin-bottom' key={project_name}>
                   <h3 className='w3-opacity'><b>{project_name}</b></h3>
                   <div className='w3-padding'><span className='w3-tag w3-round-large'>{associated_with}</span></div>
 
