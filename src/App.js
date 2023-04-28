@@ -179,7 +179,7 @@ function App() {
             <h2 className="w3-text-gray w3-animate-left" id='eduHead'>EDUCATION</h2>
             <hr style={{ width: '200px' }} className="w3-opacity" />
             <div className='w3-center w3-animate-zoom'>
-              <img src={diploma} alt="diploma" className='w3-image w3-sepia-max' width="50%" />
+              <img src={diploma} alt="diploma" className='w3-image w3-circle w3-sepia-max' width="50%" />
             </div>
             <p className='w3-text-gray' id='eduTxt'></p>
           </div>
@@ -192,9 +192,9 @@ function App() {
             <h2 className="w3-text-gray w3-animate-left">CERTIFICATES</h2>
             <hr style={{ width: '200px' }} className="w3-opacity" />
             <div className='w3-center w3-animate-zoom'>
-              <img src={certificate} alt="certificate" className='w3-image w3-sepia-max' width="50%" />
+              <img src={certificate} alt="certificate" className='w3-image w3-circle w3-sepia-max' width="50%" />
             </div>
-            <div style={{ height: 270, display: 'flex', alignItems: 'center' }}>
+            <div style={{ height: 270, display: 'flex', alignItems: 'center' }} className='w3-hide-small'>
               <ul className='w3-text-gray' style={{ margin: 'auto' }}>
                 <li>
                   <Typewriter
@@ -238,12 +238,54 @@ function App() {
                 </li>
               </ul>
             </div>
-            {
-              CERTS &&
-              CERTS.map(({ src, desc }) => (
-                <Certificates key={Math.random()} src={src} desc={desc} />
-              ))
-            }
+            <ul className='w3-text-gray w3-hide-large w3-hide-medium' style={{ margin: 'auto' }}>
+                <li>
+                  <Typewriter
+                    key={ID}
+                    words={["🎓🏅 I have obtained a number of certifications in various subjects from prestigious institutions, including the University of Moratuwa, Hackerrank, and Kaggle."]}
+                    typeSpeed={50}
+                    cursor="|"
+                  />
+                </li>
+                <li>
+                  <Typewriter
+                    key={ID}
+                    words={["👨‍💻 From the University of Moratuwa, I have received certifications in a range of subjects, including 🐍 Python programming, 💻 web development, 🎨 frontend web development, 🖥️ backend web development, and 🤝 professional practice."]}
+                    typeSpeed={60}
+                    cursor="|"
+                  />
+                </li>
+                <li>
+                  <Typewriter
+                    key={ID}
+                    words={["💻 Through Hackerrank, I have earned certifications in 🍵 Java, 🟨 JavaScript, 🔵 NodeJS, ⚛️ React, and 🐍 Python, showcasing my proficiency in some of the most widely used programming languages."]}
+                    typeSpeed={70}
+                    cursor="|"
+                  />
+                </li>
+                <li>
+                  <Typewriter
+                    key={ID}
+                    words={["📊 Finally, from Kaggle, I have received certifications in 🐼 Pandas, 📈 data visualization, and 🤖 machine learning. These certifications highlight my knowledge and expertise in areas related to data science and analysis."]}
+                    typeSpeed={80}
+                    cursor="|"
+                  />
+                </li>
+                <li>
+                  <Typewriter
+                    key={ID}
+                    words={["🌟 These certifications demonstrate my dedication to continuous learning and development, and my commitment to staying up-to-date with the latest trends and technologies in the field of computer science."]}
+                    typeSpeed={90}
+                    cursor="|"
+                  />
+                </li>
+              </ul>
+              {
+                CERTS &&
+                CERTS.map(({ src, desc }) => (
+                  <Certificates key={Math.random()} src={src} desc={desc} />
+                ))
+              }
           </div>
         }
 
@@ -253,7 +295,7 @@ function App() {
             <h2 className="w3-text-gray w3-animate-left">SKILLS</h2>
             <hr style={{ width: '200px' }} className="w3-opacity" />
             <div className='w3-center w3-animate-zoom'>
-              <img src={verified} alt="skills" className='w3-image w3-sepia-max' width="50%" />
+              <img src={verified} alt="skills" className='w3-image w3-circle w3-sepia-max' width="50%" />
             </div>
             <div style={{ height: 405, display: 'flex', alignItems: 'center' }}>
 
