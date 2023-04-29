@@ -83,33 +83,33 @@ export default function Navbar({ RENDER_HOME, RENDER_EDU, RENDER_CERT, RENDER_SK
                 </span>
             </nav>
 
-            <div className="w3-top w3-hide-large" id="myNavbar" style={{ backgroundColor: '#80808014', padding: 5 }}>
+            <div className="w3-top w3-hide-large" style={{ backgroundColor: '#80808038', padding: 5 }}>
                 <div className="w3-bar w3-opacity w3-hover-opacity-off w3-center w3-small">
-                    <span onClick={RENDER_HOME} className="w3-bar-item" style={{ width: '20%', padding: 0 }}><img src={ABOUT} alt="ABOUT" width={50} height={50} /></span>
-                    <span onClick={RENDER_EDU} className="w3-bar-item" style={{ width: '20%', padding: 0 }}><img src={EDU} alt="EDU" width={50} height={50} /></span>
-                    <span onClick={RENDER_CERT} className="w3-bar-item" style={{ width: '20%', padding: 0 }}><img src={CERT} alt="CERT" width={50} height={50} /></span>
-                    <span onClick={RENDER_SKILLS} className="w3-bar-item" style={{ width: '20%', padding: 0 }}><img src={SKILLS} alt="SKILLS" width={50} height={50} /></span>
-                    <span onClick={RENDER_PROJECTS} className="w3-bar-item" style={{ width: '20%', padding: 0 }}><img src={PROJ} alt="PROJ" width={50} height={50} /></span>
+                    <span onClick={RENDER_HOME} className="w3-bar-item" style={{ width: '20%', padding: 0 }}><img src={ABOUT} className="w3-round-large" alt="ABOUT" width={50} height={50} /></span>
+                    <span onClick={RENDER_EDU} className="w3-bar-item" style={{ width: '20%', padding: 0 }}><img src={EDU} className="w3-round-large" alt="EDU" width={50} height={50} /></span>
+                    <span onClick={RENDER_CERT} className="w3-bar-item" style={{ width: '20%', padding: 0 }}><img src={CERT} className="w3-round-large" alt="CERT" width={50} height={50} /></span>
+                    <span onClick={RENDER_SKILLS} className="w3-bar-item" style={{ width: '20%', padding: 0 }}><img src={SKILLS} className="w3-round-large" alt="SKILLS" width={50} height={50} /></span>
+                    <span onClick={RENDER_PROJECTS} className="w3-bar-item" style={{ width: '20%', padding: 0 }}><img src={PROJ} className="w3-round-large" alt="PROJ" width={50} height={50} /></span>
                 </div>
             </div>
 
-            <header className="w3-container w3-padding w3-center" id="home">
-                <h1 className="w3-jumbo w3-hide-small">
+            <header className="w3-container w3-center" style={{paddingTop:64,color:'#444'}}>
+                <div className="w3-jumbo w3-hide-small">
                     <Typewriter
                         key={ID}
                         words={["Hasindu Sithmin"]}
                         typeSpeed={50}
                         cursor="_"
                     />
-                </h1>
-                <h1 className="w3-xxlarge w3-padding-64 w3-hide-large w3-hide-medium">
+                </div>
+                <div className="w3-xxlarge w3-hide-large w3-hide-medium">
                     <Typewriter
                         key={ID}
                         words={["Hasindu Sithmin"]}
                         typeSpeed={50}
                         cursor="_"
                     />
-                </h1>
+                </div>
                 <div className='w3-xlarge'>
                     <span>A Developer</span> <span><img className="w3-circle" src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${devPath}/${devFile}.svg`} width={44} title={devPath} /> </span>
                 </div>

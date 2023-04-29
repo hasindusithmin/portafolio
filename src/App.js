@@ -189,7 +189,7 @@ function App() {
 
         {
           SHOW_EDU &&
-          <div className="w3-content w3-justify w3-text-gray w3-padding-64" onLoad={() => { displayTXT('eduTxt', content['education']) }}>
+          <div className="w3-content w3-justify w3-text-gray" onLoad={() => { displayTXT('eduTxt', content['education']) }}>
             <h2 className="w3-text-gray w3-animate-left" id='eduHead'>EDUCATION</h2>
             <hr style={{ width: '200px' }} className="w3-opacity" />
             <div className='w3-center w3-animate-zoom'>
@@ -202,7 +202,7 @@ function App() {
 
         {
           SHOW_CERT &&
-          <div className="w3-content w3-justify w3-text-gray w3-padding-64">
+          <div className="w3-content w3-justify w3-text-gray">
             <h2 className="w3-text-gray w3-animate-left">CERTIFICATES</h2>
             <hr style={{ width: '200px' }} className="w3-opacity" />
             <div className='w3-center w3-animate-zoom'>
@@ -305,7 +305,7 @@ function App() {
 
         {
           SHOW_SKILLS &&
-          <div className="w3-content w3-justify w3-text-gray w3-padding-64" >
+          <div className="w3-content w3-justify w3-text-gray" >
             <h2 className="w3-text-gray w3-animate-left">SKILLS</h2>
             <hr style={{ width: '200px' }} className="w3-opacity" />
             <div className='w3-center w3-animate-zoom'>
@@ -362,7 +362,7 @@ function App() {
 
         {
           SHOW_PROJECT &&
-          <div className="w3-content w3-justify w3-text-gray w3-padding-64">
+          <div className="w3-content w3-justify w3-text-gray">
             <h2 className="w3-text-gray w3-animate-left">PROJECTS</h2>
             <hr style={{ width: '200px' }} className="w3-opacity" />
             {/* <div className='w3-center w3-animate-zoom'>
