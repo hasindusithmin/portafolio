@@ -172,7 +172,14 @@ function App() {
             <p className='w3-text-gray'>
               <Typewriter
                 key={ID}
-                words={["👋 Hi, I'm Hasindu, I am a highly motivated 💪🏼 and  enthusiastic individual 🤙 with a passion for software engineering 👨🏻‍💻. I am always looking for new challenges 🧗🏻 and opportunities🚪 to grow 🌱, and I believe that my 🤹skills and 🧓🏽experience make me an excellent candidate for any project 🚧. If you're looking for someone who is self-motivated 🎯, a team player ⚽, and a skilled problem solver 🕵🏻‍♀️, then look no further than me ✋."]}
+                words={
+                  [
+                    `👋 Hi, I'm Hasindu, I am a self driven 🐎, self motivated 💪🏼 and enthusiastic individual 🤙 with a passion for software development 👨🏻‍💻.
+                    I have a  fundamental understanding ✅ of various software engineering concepts 💭 and have gained project-based knowledge 🔬 through various hands-on experiences 🏄🏻.
+                    I am always looking for new challenges 🧗🏻 and opportunities🚪 to grow 🌱, and I believe that my skills 🤹 and experience 👴 make me an excellent candidate for any project 🚧. 
+                    If you're looking for someone who is self-motivated 🎯, a team player ⚽, and a skilled problem solver 🕵🏻‍♀️, then look no further than me ✋.`
+                  ]
+                }
                 typeSpeed={50}
                 cursor="|"
               />
