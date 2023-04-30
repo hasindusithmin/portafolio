@@ -1,5 +1,5 @@
 import linkedin from "./image/linkdin.gif"
-import medium from "./image/medium.gif"
+import blog from "./image/book.gif"
 import github from "./image/github.gif"
 
 export default function Footer() {
@@ -12,8 +12,8 @@ export default function Footer() {
         },
         {
             "name": "Medium",
-            "image":medium,
-            "url": "https://medium.com/@hasindusithmin64"
+            "image":blog,
+            "url": "https://dev-cup.vercel.app"
         },
         {
             "name": "Github",
