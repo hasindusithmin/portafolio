@@ -3,7 +3,7 @@ import './App.css';
 import Navbar from './components/Navbar';
 import { useState } from 'react';
 import { Typewriter } from 'react-simple-typewriter'
-import me from "./hasindu.jpg"
+import me from "./hasindu.png"
 import diploma from "./diploma.gif"
 import certificate from "./certificate.gif"
 import verified from "./verified.gif"
@@ -84,7 +84,7 @@ function App() {
 
   const RENDER_PROJECTS = (e) => {
     findID(e);
-    fetch('https://gist.githubusercontent.com/hasindusithmin/ce9d14320e2e891a79b775d55ddc24b7/raw/d9642b02ea049d689c99994bd060354dd9902e82/projects.json')
+    fetch('https://gist.githubusercontent.com/hasindusithmin/ce9d14320e2e891a79b775d55ddc24b7/raw/92c6c78781298e55c5bc1a3fce12ff63be4f016d/projects.json')
       .then(res => res.json())
       .then(data => {
         SET_PROJECTS(data)
@@ -376,7 +376,20 @@ function App() {
                   <div className='w3-padding'><span className='w3-tag w3-round-large'>{associated_with}</span></div>
 
                   <div className='w3-padding'>
-                    {
+                    <iframe
+                      src={project_url}
+                      title={project_name}
+                      className='iframe'
+                      style={{
+                        width: "100%",
+                        height: 500,
+                        border: "none",
+                        boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
+                        margin: "0 auto",
+                        display: "block"
+                      }}
+                    />
+                    {/* {
                       languages.length > 0 &&
                       <p>
                         <h4>Languages</h4>
@@ -404,7 +417,7 @@ function App() {
                           packages.map(pack => <span key={pack} ><span className="w3-tag w3-round w3-teal w3-margin-bottom">{pack}</span>&nbsp;</span>)
                         }
                       </p>
-                    }
+                    } */}
                   </div>
                   <div className='w3-padding'>
                     <span onClick={() => { openNewWindow(project_url) }} className='w3-button  w3-round-large' target="_blank" rel="noreferrer">

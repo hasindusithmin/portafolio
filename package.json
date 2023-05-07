@@ -8,6 +8,7 @@
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
     "react-simple-typewriter": "^5.0.1",
+    "react-spring": "^9.7.1",
     "web-vitals": "^3.0.4"
   },
   "scripts": {
