@@ -3,7 +3,7 @@ import './App.css';
 import Navbar from './components/Navbar';
 import { useState } from 'react';
 import { Typewriter } from 'react-simple-typewriter'
-import me from "./hasindu.png"
+import me from "./hasindus.png"
 import diploma from "./diploma.gif"
 import certificate from "./certificate.gif"
 import verified from "./verified.gif"
