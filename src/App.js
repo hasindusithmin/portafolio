@@ -12,8 +12,8 @@ import content from './content';
 import Certificates from './components/Certificates';
 import mySkills from './components/javascript/skills';
 import { ThemeProvider } from 'styled-components';
-import ChatBot, { Loading } from 'react-simple-chatbot';
-
+import ChatBot from 'react-simple-chatbot';
+import APIComponent from './components/APIComponent';
 
 
 function App() {
@@ -159,7 +159,7 @@ function App() {
 
   const theme = {
     background: '#C9FF8F',
-    headerBgColor: '#197B22',
+    headerBgColor: '#607d8b',
     headerFontSize: '20px',
     botBubbleColor: '#0F3789',
     headerFontColor: 'white',
@@ -167,9 +167,6 @@ function App() {
     userBubbleColor: '#FF5733',
     userFontColor: 'white',
   };
-
-
-
 
   return (
     <>
@@ -184,31 +181,39 @@ function App() {
 
       <ThemeProvider theme={theme}>
         <ChatBot
-          headerTitle="GeekBot"
+          headerTitle="Ask Me"
+          botAvatar={me}
           steps={[
             {
-              id: '1',
-              message: 'What number I am thinking?',
-              trigger: '2',
+              id: 'intro',
+              message: "Hello, I'm Hasindu Sithmin.",
+              trigger: 'first_question',
             },
             {
-              id: '2',
-              options: [
-                { value: 1, label: 'Number 1', trigger: '4' },
-                { value: 2, label: 'Number 2', trigger: '3' },
-                { value: 3, label: 'Number 3', trigger: '3' },
-              ],
+              id: 'first_question',
+              message: "what do you want to know from me?.",
+              trigger: 'input',
             },
             {
-              id: '3',
-              message: 'Wrong answer, try again.',
-              trigger: '2',
+              id: 'question',
+              message: 'What else do you want to know from me?',
+              trigger: 'input',
             },
             {
-              id: '4',
-              message: 'Awesome! You are a telepath!',
-              end: true,
+              id: 'input',
+              user: true,
+              trigger: 'call',
             },
+            {
+              id: 'call',
+              component: (
+                <APIComponent
+                  message="Hi {previousValue}, nice to meet you!"
+                  trigger="question"
+                />
+              ),
+              waitAction: true,
+            }
           ]}
           {...config}
 
