@@ -12,7 +12,7 @@ export default function Footer() {
         },
         {
             "name": "Medium",
-            "image":blog,
+            "image": blog,
             "url": "https://dev-cup.vercel.app"
         },
         {
