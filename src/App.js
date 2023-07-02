@@ -88,7 +88,7 @@ function App() {
 
   const RENDER_PROJECTS = (e) => {
     findID(e);
-    fetch('https://gist.githubusercontent.com/hasindusithmin/ce9d14320e2e891a79b775d55ddc24b7/raw/92c6c78781298e55c5bc1a3fce12ff63be4f016d/projects.json')
+    fetch('https://data.mongodb-api.com/app/born-yahdr/endpoint/portafolio/projects')
       .then(res => res.json())
       .then(data => {
         SET_PROJECTS(data)
@@ -431,15 +431,13 @@ function App() {
             </div> */}
             {
               PROJECTS &&
-              PROJECTS.map(({ project_name, associated_with, project_url, github, languages, frameworks, packages, details }) => (
-                <div className='w3-row w3-padding w3-card w3-round-large w3-white w3-margin-bottom' key={project_name}>
-                  <h3 className='w3-opacity'><b>{project_name}</b></h3>
-                  <div className='w3-padding'><span className='w3-tag w3-round-large'>{associated_with}</span></div>
-
+              PROJECTS.map(({ _id, name, url, github, description }) => (
+                <div className='w3-row w3-padding w3-card w3-round-large w3-white w3-margin-bottom' key={_id}>
+                  <h3 className='w3-opacity'><b>{name}</b></h3>
                   <div className='w3-padding'>
                     <iframe
-                      src={project_url}
-                      title={project_name}
+                      src={url}
+                      title={name}
                       className='iframe'
                       style={{
                         width: "100%",
@@ -450,38 +448,9 @@ function App() {
                         display: "block"
                       }}
                     />
-                    {/* {
-                      languages.length > 0 &&
-                      <p>
-                        <h4>Languages</h4>
-                        {
-                          languages.map(language => <span key={language} ><span className="w3-tag w3-round w3-blue">{language}</span>&nbsp;</span>)
-                        }
-                      </p>
-                    }
-
-                    {
-                      frameworks.length > 0 &&
-                      <p>
-                        <h4>Frameworks</h4>
-                        {
-                          frameworks.map(framework => <span key={framework} ><span className="w3-tag w3-round w3-green">{framework}</span>&nbsp;</span>)
-                        }
-                      </p>
-                    }
-
-                    {
-                      packages.length > 0 &&
-                      <p>
-                        <h4>Packages</h4>
-                        {
-                          packages.map(pack => <span key={pack} ><span className="w3-tag w3-round w3-teal w3-margin-bottom">{pack}</span>&nbsp;</span>)
-                        }
-                      </p>
-                    } */}
                   </div>
                   <div className='w3-padding'>
-                    <span onClick={() => { openNewWindow(project_url) }} className='w3-button  w3-round-large' target="_blank" rel="noreferrer">
+                    <span onClick={() => { openNewWindow(url) }} className='w3-button  w3-round-large' target="_blank" rel="noreferrer">
                       <img src="/devimages/chrome.png" alt='web2' width="35" height="35" />&nbsp;<span className='w3-hide-small'>Project URL</span>
                     </span>
                     &nbsp;
@@ -492,7 +461,7 @@ function App() {
                       </span>
                     }
                   </div>
-                  <p className='w3-justify' style={{ overflow: 'hidden' }}>{details}</p>
+                  <p className='w3-justify' style={{ overflow: 'hidden' }}>{description}</p>
                 </div>
               ))
             }
