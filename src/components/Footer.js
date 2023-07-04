@@ -11,7 +11,7 @@ export default function Footer() {
             "url": "https://www.linkedin.com/in/hasindu-sithmin-9a1a12209/"
         },
         {
-            "name": "Medium",
+            "name": "Blog",
             "image": blog,
             "url": "https://dev-cup.vercel.app"
         },
@@ -30,7 +30,7 @@ export default function Footer() {
                     {
                         PLATS.map(({ name, image, url }) => (
                             <span className='w3-transparent w3-padding-large w3-round-large w3-margin-right' key={name} >
-                                <a href={url} target="_blank" rel="noreferrer"><img src={image} alt={name} width="35" height="35" /></a>
+                                <a href={url} target="_blank" rel="noreferrer"><img src={image} alt={name} width="35" height="35" title={name}/></a>
                             </span>
                         ))
                     }

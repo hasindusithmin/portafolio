@@ -59,7 +59,7 @@ const devicon = {
     "Dotnetcore": "dotnetcore-plain",
     "Drupal": "drupal-plain",
     "Digitalocean": "digitalocean-plain",
-    "Discordjs": "discordjs-original",
+    "Discordjs": "discordjs-plain",
     "Electron": "electron-original",
     "Eleventy": "eleventy-plain",
     "Elixir": "elixir-plain",

@@ -240,7 +240,7 @@ function App() {
                     If you're looking for someone who is self-motivated 🎯, a team player ⚽, and a skilled problem solver 🕵🏻‍♀️, then look no further than me ✋.`
                   ]
                 }
-                typeSpeed={50}
+                typeSpeed={25}
                 cursor="|"
               />
             </p>
@@ -252,14 +252,19 @@ function App() {
           <div className="w3-content w3-justify w3-text-gray">
             <h2 className="w3-text-gray w3-animate-left" id='eduHead'>EDUCATION</h2>
             <hr style={{ width: '200px' }} className="w3-opacity" />
-            <div className='w3-center w3-animate-zoom'>
+            <div className='w3-center w3-animate-zoom w3-display-container'>
+              <div className='w3-display-middle'>
+                <a href="https://www.linkedin.com/in/hasindu-sithmin-9a1a12209/details/education/" target='_blank' rel="noreferrer">See More</a>
+              </div>
               <img src={diploma} alt="diploma" className='w3-image w3-circle ' width="50%" />
             </div>
             <p className='w3-text-gray'>
-              <h6 className='w3-center'>🎓 My Education Journey 🎓</h6>
-              <hr/>
+              <h5 className='w3-center'>
+                <Typewriter words={['🎓 My Education Journey 🎓']} typeSpeed={200} />
+              </h5>
+              <hr />
               <div className='w3-display-container'>
-                <div class="w3-padding w3-display-topright" style={{ fontSize: '25px', color: 'blue' }}>
+                <div class="w3-padding w3-display-topright" style={{ fontSize: '25px' }}>
                   <a href="https://www.sjc.lk/" target='_blank' rel="noreferrer" ><i className="fa fa-external-link"></i></a>
                 </div>
                 <img className='w3-image w3-round-large' src="/education/sjc.png" alt="St.Joseph's College" />
@@ -268,7 +273,7 @@ function App() {
                 📚 I started my education journey at St. Joseph's College in Anuradhapura, where I successfully completed my Ordinary Level Exam with outstanding results. I achieved Grade A-7, B-1, and C-1, which gave me the confidence to pursue my dreams further.
               </p>
               <div className='w3-display-container'>
-                <div class="w3-padding w3-display-topright" style={{ fontSize: '25px', color: 'blue' }}>
+                <div class="w3-padding w3-display-topright" style={{ fontSize: '25px' }}>
                   <a href="https://www.anucentralcollege.lk/" target='_blank' rel="noreferrer" ><i className="fa fa-external-link"></i></a>
                 </div>
                 <img className='w3-image w3-round-large' src="/education/acc.jpg" alt="Anuradhapura Central College" />
@@ -277,7 +282,7 @@ function App() {
                 📈 Moving forward, I continued my academic journey at Central College Anuradhapura, where I completed my Advanced Level Exam with a Grade of C-3 in Combined Mathematics, Physics, and Chemistry. Despite the challenges, I worked hard and remained dedicated to achieving my goals.
               </p>
               <div className='w3-display-container'>
-                <div class="w3-padding w3-display-topright" style={{ fontSize: '25px', color: 'blue' }}>
+                <div class="w3-padding w3-display-topright" style={{ fontSize: '25px' }}>
                   <a href="https://itum.mrt.ac.lk/" target='_blank' rel="noreferrer" ><i className="fa fa-external-link"></i></a>
                 </div>
                 <img className='w3-image w3-round-large' src="/education/itum.jpg" alt="Institute Of Technology University Of Moratuwa" />
@@ -285,7 +290,7 @@ function App() {
               <p>
                 🎯 With a strong academic background and a desire to learn, I enrolled at the Institute of Technology, University of Moratuwa, to pursue a program in Information Technology. I dedicated myself to my studies, and with perseverance and hard work, I successfully completed my educational program.
               </p>
-              <hr/>
+              <hr />
               <p>
                 👨‍🎓👩‍🎓 Education is the foundation for success, and I am grateful for the opportunities I have had to learn and grow. I am excited to share my knowledge and experiences with others and to inspire them to achieve their dreams.
               </p>
@@ -299,11 +304,14 @@ function App() {
           <div className="w3-content w3-justify w3-text-gray">
             <h2 className="w3-text-gray w3-animate-left">CERTIFICATES</h2>
             <hr style={{ width: '200px' }} className="w3-opacity" />
-            <div className='w3-center w3-animate-zoom'>
+            <div className='w3-center w3-animate-zoom w3-display-container'>
+              <div className='w3-display-middle'>
+                <a href="https://www.linkedin.com/in/hasindu-sithmin-9a1a12209/details/certifications/" target='_blank' rel="noreferrer">See More</a>
+              </div>
               <img src={certificate} alt="certificate" className='w3-image w3-circle ' width="50%" />
             </div>
-            <div style={{ height: 270, display: 'flex', alignItems: 'center' }} className='w3-hide-small'>
-              <ul className='w3-text-gray' style={{ margin: 'auto' }}>
+            <div style={{ height: 405, display: 'flex', alignItems: 'center' }}>
+              <ul className='w3-text-gray w3-ul' style={{ margin: 'auto' }}>
                 <li>
                   <Typewriter
                     key={ID}
@@ -346,54 +354,16 @@ function App() {
                 </li>
               </ul>
             </div>
-            <ul className='w3-text-gray w3-hide-large w3-hide-medium' style={{ margin: 'auto' }}>
-              <li>
-                <Typewriter
-                  key={ID}
-                  words={["🎓🏅 I have obtained a number of certifications in various subjects from prestigious institutions, including the University of Moratuwa, Hackerrank, and Kaggle."]}
-                  typeSpeed={50}
-                  cursor="|"
-                />
-              </li>
-              <li>
-                <Typewriter
-                  key={ID}
-                  words={["👨‍💻 From the University of Moratuwa, I have received certifications in a range of subjects, including 🐍 Python programming, 💻 web development, 🎨 frontend web development, 🖥️ backend web development, and 🤝 professional practice."]}
-                  typeSpeed={60}
-                  cursor="|"
-                />
-              </li>
-              <li>
-                <Typewriter
-                  key={ID}
-                  words={["💻 Through Hackerrank, I have earned certifications in 🍵 Java, 🟨 JavaScript, 🔵 NodeJS, ⚛️ React, and 🐍 Python, showcasing my proficiency in some of the most widely used programming languages."]}
-                  typeSpeed={70}
-                  cursor="|"
-                />
-              </li>
-              <li>
-                <Typewriter
-                  key={ID}
-                  words={["📊 Finally, from Kaggle, I have received certifications in 🐼 Pandas, 📈 data visualization, and 🤖 machine learning. These certifications highlight my knowledge and expertise in areas related to data science and analysis."]}
-                  typeSpeed={80}
-                  cursor="|"
-                />
-              </li>
-              <li>
-                <Typewriter
-                  key={ID}
-                  words={["🌟 These certifications demonstrate my dedication to continuous learning and development, and my commitment to staying up-to-date with the latest trends and technologies in the field of computer science."]}
-                  typeSpeed={90}
-                  cursor="|"
-                />
-              </li>
-            </ul>
-            {
-              CERTS &&
-              CERTS.map(({ src, desc }) => (
-                <Certificates key={Math.random()} src={src} desc={desc} />
-              ))
-            }
+            <div className='w3-padding-32'></div>
+
+            {/* <div className='w3-hide-small'>
+              {
+                CERTS &&
+                CERTS.map(({ src, desc }) => (
+                  <Certificates key={Math.random()} src={src} desc={desc} />
+                ))
+              }
+            </div> */}
           </div>
         }
 
@@ -402,12 +372,14 @@ function App() {
           <div className="w3-content w3-justify w3-text-gray" >
             <h2 className="w3-text-gray w3-animate-left">SKILLS</h2>
             <hr style={{ width: '200px' }} className="w3-opacity" />
-            <div className='w3-center w3-animate-zoom'>
+            <div className='w3-center w3-animate-zoom w3-display-container'>
+              <div className='w3-display-middle'>
+                <a href="https://www.linkedin.com/in/hasindu-sithmin-9a1a12209/details/skills/" target='_blank' rel="noreferrer">See More</a>
+              </div>
               <img src={verified} alt="skills" className='w3-image w3-circle ' width="50%" />
             </div>
             <div style={{ height: 405, display: 'flex', alignItems: 'center' }}>
-
-              <ul className='w3-text-gray' style={{ margin: 'auto' }}>
+              <ul className='w3-text-gray w3-ul' style={{ margin: 'auto' }}>
                 <li>
                   <Typewriter
                     key={ID}
@@ -450,6 +422,7 @@ function App() {
                 </li>
               </ul>
             </div>
+            <div className='w3-padding-32'></div>
           </div>
 
         }
@@ -459,9 +432,9 @@ function App() {
           <div className="w3-content w3-justify w3-text-gray">
             <h2 className="w3-text-gray w3-animate-left">PROJECTS</h2>
             <hr style={{ width: '200px' }} className="w3-opacity" />
-            {/* <div className='w3-center w3-animate-zoom'>
-              <img src={blueprint} alt="blueprint" className='w3-image ' width="50%" />
-            </div> */}
+            {
+              !PROJECTS && <div className='w3-large'><b>Loading...</b></div>
+            }
             {
               PROJECTS &&
               PROJECTS.map(({ _id, name, url, github, description }) => (

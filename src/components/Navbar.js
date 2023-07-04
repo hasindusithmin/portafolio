@@ -18,8 +18,7 @@ export default function Navbar({ RENDER_HOME, RENDER_EDU, RENDER_CERT, RENDER_SK
     let iOne = 0, iTwo = 0;
     const slides = [uno, due, tre, quattro, cinque];
     const [image, setImage] = useState(uno);
-    const [devPath, setDevPath] = useState('');
-    const [devFile, setDevFile] = useState('');
+    const [devIcon, setDevIcon] = useState('');
 
     useEffect(() => {
         const intervalId = setInterval(() => {
@@ -31,17 +30,21 @@ export default function Navbar({ RENDER_HOME, RENDER_EDU, RENDER_CERT, RENDER_SK
                 iOne++;
                 setImage(slides[iOne])
             }
+        }, 3000);
+        return () => clearInterval(intervalId);
+    }, []);
+
+    useEffect(() => {
+        const intervalId = setInterval(() => {
             if (iTwo === Object.keys(devicon).length - 1) {
                 iTwo = 0;
-                setDevPath(Object.keys(devicon)[iTwo].toLowerCase())
-                setDevFile(Object.values(devicon)[iTwo])
+                setDevIcon(Object.values(devicon)[iTwo])
             }
             else {
                 iTwo++;
-                setDevPath(Object.keys(devicon)[iTwo].toLowerCase())
-                setDevFile(Object.values(devicon)[iTwo])
+                setDevIcon(Object.values(devicon)[iTwo])
             }
-        }, 3000);
+        }, 500);
         return () => clearInterval(intervalId);
     }, []);
 
@@ -93,13 +96,13 @@ export default function Navbar({ RENDER_HOME, RENDER_EDU, RENDER_CERT, RENDER_SK
                 </div>
             </div>
 
-            <header className="w3-container w3-center" style={{paddingTop:64,color:'#444'}}>
+            <header className="w3-container w3-center" style={{ paddingTop: 64, color: '#444' }}>
                 <div className="w3-jumbo w3-hide-small">
                     <Typewriter
                         key={ID}
                         words={["Hasindu Sithmin"]}
                         typeSpeed={50}
-                        cursor="_"
+                        cursorBlinking={false}
                     />
                 </div>
                 <div className="w3-xxlarge w3-hide-large w3-hide-medium">
@@ -107,11 +110,11 @@ export default function Navbar({ RENDER_HOME, RENDER_EDU, RENDER_CERT, RENDER_SK
                         key={ID}
                         words={["Hasindu Sithmin"]}
                         typeSpeed={50}
-                        cursor="_"
+                        cursorBlinking={false}
                     />
                 </div>
                 <div className='w3-xlarge'>
-                    <span>A Developer</span> <span><img className="w3-circle" src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${devPath}/${devFile}.svg`} width={44} title={devPath} /> </span>
+                    <span style={{ verticalAlign: 'middle' }}>Developer</span> <span style={{ verticalAlign: 'middle' }}>&nbsp;<i class={`devicon-${devIcon}`} style={{ fontSize: 29 }}></i> </span>
                 </div>
             </header>
 
