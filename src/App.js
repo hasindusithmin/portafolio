@@ -8,7 +8,6 @@ import diploma from "./diploma.gif"
 import certificate from "./certificate.gif"
 import verified from "./verified.gif"
 import Footer from './components/Footer';
-import Certificates from './components/Certificates';
 import mySkills from './components/javascript/skills';
 import { ThemeProvider } from 'styled-components';
 import ChatBot from 'react-simple-chatbot';
@@ -49,7 +48,14 @@ function App() {
     }
   }
 
+  let [renderHome, setRenderHome] = useState(false);
+  let [renderEducation, setRenderEducation] = useState(0);
+  let [renderCertification, setRenderCertification] = useState(0);
+  let [renderSkills, setRenderSkills] = useState(0);
+  let [renderProjects, setRenderProjects] = useState(0);
+
   const RENDER_HOME = (e) => {
+    setRenderHome(true);
     findID(e);
     SET_SHOW_HOME(true)
     SET_SHOW_EDU(false)
@@ -59,6 +65,7 @@ function App() {
   }
 
   const RENDER_EDU = (e) => {
+    setRenderEducation(renderEducation += 1);
     findID(e);
     SET_SHOW_HOME(false)
     SET_SHOW_EDU(true)
@@ -68,6 +75,7 @@ function App() {
   }
 
   const RENDER_CERT = (e) => {
+    setRenderCertification(renderCertification += 1);
     findID(e);
     SET_SHOW_HOME(false)
     SET_SHOW_EDU(false)
@@ -77,6 +85,7 @@ function App() {
   }
 
   const RENDER_SKILLS = (e) => {
+    setRenderSkills(renderSkills += 1);
     findID(e);
     SET_SHOW_HOME(false)
     SET_SHOW_EDU(false)
@@ -87,39 +96,19 @@ function App() {
 
   const RENDER_PROJECTS = (e) => {
     findID(e);
-    fetch('https://data.mongodb-api.com/app/born-yahdr/endpoint/portafolio/projects')
-      .then(res => res.json())
-      .then(data => {
-        SET_PROJECTS(data)
-      })
+    setRenderProjects(renderProjects += 1);
+    if (renderProjects <= 1) {
+      fetch('https://data.mongodb-api.com/app/born-yahdr/endpoint/portafolio/projects')
+        .then(res => res.json())
+        .then(data => {
+          SET_PROJECTS(data)
+        })
+    }
     SET_SHOW_HOME(false)
     SET_SHOW_EDU(false)
     SET_SHOW_CERT(false)
     SET_SHOW_SKILLS(false)
     SET_SHOW_PROJECT(true)
-  }
-  const [CERTS, setCERTS] = useState([
-    {
-      src: "https://hasindusithmin.github.io/certificates/codl/",
-      desc: "Certificate program on full stack development .Courses are developed by the Departments of Computer Science and Engineering and Information Technology of the University of Moratuwa in collaboration with industry professionals."
-    },
-    {
-      src: "https://hasindusithmin.github.io/certificates/kaggle/",
-      desc: "I followed Kaggle to gain the skills I needed to do independent data science projects."
-    },
-    {
-      src: "https://hasindusithmin.github.io/certificates/hackerrank/",
-      desc: "I followed HackerRank to get certified in technical skills by taking the HackerRank Skills Certification Test."
-    }
-  ]);
-
-  const Skills = {
-    'Programming languages': ['java.svg', 'javascript.svg', 'nodejs.png', 'python.svg'],
-    'Web development': ['html5.svg', 'nextjs.svg', 'react.svg'],
-    Frameworks: ['express.svg', 'fastapi.png', 'fiber.png'],
-    Databases: ['firebase.png', 'mongodb.png', 'postgresql.png', 'supabase.png'],
-    'Operating system': ['fedora.png'],
-    'Version control': ['github.png']
   }
 
   const openNewWindow = (url) => {
@@ -129,28 +118,6 @@ function App() {
     let top = (window.screen.height / 2) - (h / 2);
     window.open(url, '_blank', 'width=' + w + ', height=' + h + ', left=' + left + ', top=' + top);
   }
-
-  const displayTXT = (ID, text) => {
-    const textEl = document.getElementById(ID);
-
-    let i = 0;
-
-    function writeText() {
-      if (text[i] === '\n') {
-        const br = document.createElement('br');
-        textEl.appendChild(br)
-      }
-      textEl.innerHTML += text[i];
-      i++;
-
-      if (i > text.length - 1) {
-        clearInterval(intervalId);
-      }
-    }
-    const intervalId = setInterval(writeText, 25)
-  }
-
-
 
   const config = {
     floating: true,
@@ -230,19 +197,27 @@ function App() {
               <img src={me} alt="Hasindu" className='w3-image w3-circle' width="50%" />
             </div>
             <p className='w3-text-gray'>
-              <Typewriter
-                key={ID}
-                words={
-                  [
-                    `👋 Hi, I'm Hasindu, I am a self driven 🐎, self motivated 💪🏼 and enthusiastic individual 🤙 with a passion for software development 👨🏻‍💻.
+              {
+                !renderHome ?
+                  <Typewriter
+                    key={ID}
+                    words={
+                      [
+                        `👋 Hi, I'm Hasindu, I am a self driven 🐎, self motivated 💪🏼 and enthusiastic individual 🤙 with a passion for software development 👨🏻‍💻.
                     I have a  fundamental understanding ✅ of various software engineering concepts 💭 and have gained project-based knowledge 🔬 through various hands-on experiences 🏄🏻.
                     I am always looking for new challenges 🧗🏻 and opportunities🚪 to grow 🌱, and I believe that my skills 🤹 and experience 👴 make me an excellent candidate for any project 🚧. 
                     If you're looking for someone who is self-motivated 🎯, a team player ⚽, and a skilled problem solver 🕵🏻‍♀️, then look no further than me ✋.`
-                  ]
-                }
-                typeSpeed={25}
-                cursor="|"
-              />
+                      ]
+                    }
+                    typeSpeed={25}
+                    cursor="|"
+                  />
+                  :
+                  `👋 Hi, I'm Hasindu, I am a self driven 🐎, self motivated 💪🏼 and enthusiastic individual 🤙 with a passion for software development 👨🏻‍💻.
+                    I have a  fundamental understanding ✅ of various software engineering concepts 💭 and have gained project-based knowledge 🔬 through various hands-on experiences 🏄🏻.
+                    I am always looking for new challenges 🧗🏻 and opportunities🚪 to grow 🌱, and I believe that my skills 🤹 and experience 👴 make me an excellent candidate for any project 🚧. 
+                    If you're looking for someone who is self-motivated 🎯, a team player ⚽, and a skilled problem solver 🕵🏻‍♀️, then look no further than me ✋.`
+              }
             </p>
           </div>
         }
@@ -254,18 +229,18 @@ function App() {
             <hr style={{ width: '200px' }} className="w3-opacity" />
             <div className='w3-center w3-animate-zoom w3-display-container'>
               <div className='w3-display-middle'>
-                <a href="https://www.linkedin.com/in/hasindu-sithmin-9a1a12209/details/education/" target='_blank' rel="noreferrer">See More</a>
+                <a href="https://www.linkedin.com/in/hasindu-sithmin-9a1a12209/details/education/" target='_blank' rel="noreferrer" style={{ textDecoration: 'none', color: '#004182' }}>See More</a>
               </div>
               <img src={diploma} alt="diploma" className='w3-image w3-circle ' width="50%" />
             </div>
             <p className='w3-text-gray'>
               <h5 className='w3-center'>
-                <Typewriter words={['🎓 My Education Journey 🎓']} typeSpeed={200} />
+                {renderEducation > 1 ? '🎓 My Education Journey 🎓' : <Typewriter words={['🎓 My Education Journey 🎓']} typeSpeed={200} />}
               </h5>
               <hr />
               <div className='w3-display-container'>
                 <div class="w3-padding w3-display-topright" style={{ fontSize: '25px' }}>
-                  <a href="https://www.sjc.lk/" target='_blank' rel="noreferrer" ><i className="fa fa-external-link"></i></a>
+                  <a href="https://www.sjc.lk/" target='_blank' rel="noreferrer" ><i className="fa fa-external-link-square"></i></a>
                 </div>
                 <img className='w3-image w3-round-large' src="/education/sjc.png" alt="St.Joseph's College" />
               </div>
@@ -274,7 +249,7 @@ function App() {
               </p>
               <div className='w3-display-container'>
                 <div class="w3-padding w3-display-topright" style={{ fontSize: '25px' }}>
-                  <a href="https://www.anucentralcollege.lk/" target='_blank' rel="noreferrer" ><i className="fa fa-external-link"></i></a>
+                  <a href="https://www.anucentralcollege.lk/" target='_blank' rel="noreferrer" ><i className="fa fa-external-link-square"></i></a>
                 </div>
                 <img className='w3-image w3-round-large' src="/education/acc.jpg" alt="Anuradhapura Central College" />
               </div>
@@ -283,7 +258,7 @@ function App() {
               </p>
               <div className='w3-display-container'>
                 <div class="w3-padding w3-display-topright" style={{ fontSize: '25px' }}>
-                  <a href="https://itum.mrt.ac.lk/" target='_blank' rel="noreferrer" ><i className="fa fa-external-link"></i></a>
+                  <a href="https://itum.mrt.ac.lk/" target='_blank' rel="noreferrer" ><i className="fa fa-external-link-square"></i></a>
                 </div>
                 <img className='w3-image w3-round-large' src="/education/itum.jpg" alt="Institute Of Technology University Of Moratuwa" />
               </div>
@@ -306,64 +281,76 @@ function App() {
             <hr style={{ width: '200px' }} className="w3-opacity" />
             <div className='w3-center w3-animate-zoom w3-display-container'>
               <div className='w3-display-middle'>
-                <a href="https://www.linkedin.com/in/hasindu-sithmin-9a1a12209/details/certifications/" target='_blank' rel="noreferrer">See More</a>
+                <a href="https://www.linkedin.com/in/hasindu-sithmin-9a1a12209/details/certifications/" target='_blank' rel="noreferrer" style={{ textDecoration: 'none', color: '#004182' }}>See More</a>
               </div>
               <img src={certificate} alt="certificate" className='w3-image w3-circle ' width="50%" />
             </div>
             <div style={{ height: 405, display: 'flex', alignItems: 'center' }}>
-              <ul className='w3-text-gray w3-ul' style={{ margin: 'auto' }}>
-                <li>
-                  <Typewriter
-                    key={ID}
-                    words={["🎓🏅 I have obtained a number of certifications in various subjects from prestigious institutions, including the University of Moratuwa, Hackerrank, and Kaggle."]}
-                    typeSpeed={50}
-                    cursor="|"
-                  />
-                </li>
-                <li>
-                  <Typewriter
-                    key={ID}
-                    words={["👨‍💻 From the University of Moratuwa, I have received certifications in a range of subjects, including 🐍 Python programming, 💻 web development, 🎨 frontend web development, 🖥️ backend web development, and 🤝 professional practice."]}
-                    typeSpeed={60}
-                    cursor="|"
-                  />
-                </li>
-                <li>
-                  <Typewriter
-                    key={ID}
-                    words={["💻 Through Hackerrank, I have earned certifications in 🍵 Java, 🟨 JavaScript, 🔵 NodeJS, ⚛️ React, and 🐍 Python, showcasing my proficiency in some of the most widely used programming languages."]}
-                    typeSpeed={70}
-                    cursor="|"
-                  />
-                </li>
-                <li>
-                  <Typewriter
-                    key={ID}
-                    words={["📊 Finally, from Kaggle, I have received certifications in 🐼 Pandas, 📈 data visualization, and 🤖 machine learning. These certifications highlight my knowledge and expertise in areas related to data science and analysis."]}
-                    typeSpeed={80}
-                    cursor="|"
-                  />
-                </li>
-                <li>
-                  <Typewriter
-                    key={ID}
-                    words={["🌟 These certifications demonstrate my dedication to continuous learning and development, and my commitment to staying up-to-date with the latest trends and technologies in the field of computer science."]}
-                    typeSpeed={90}
-                    cursor="|"
-                  />
-                </li>
-              </ul>
+              {
+                renderCertification > 1 ?
+                  <ul className='w3-text-gray w3-ul' style={{ margin: 'auto' }}>
+                    <li>
+                      🎓🏅 I have obtained a number of certifications in various subjects from prestigious institutions, including the University of Moratuwa, Hackerrank, and Kaggle.
+                    </li>
+                    <li>
+                      From the University of Moratuwa, I have received certifications in a range of subjects, including 🐍 Python programming, 💻 web development, 🎨 frontend web development, 🖥️ backend web development, and 🤝 professional practice.&nbsp;<a href="https://hasindusithmin.github.io/certificates/codl/" target="_blank" rel="noreferrer" className='w3-text-blue'><i className="fa fa-external-link-square"></i></a>
+                    </li>
+                    <li>
+                      Through Hackerrank, I have earned certifications in 🍵 Java, 🟨 JavaScript, 🔵 NodeJS, ⚛️ React, and 🐍 Python, showcasing my proficiency in some of the most widely used programming languages.&nbsp;<a href="https://hasindusithmin.github.io/certificates/hackerrank/" target="_blank" rel="noreferrer" className='w3-text-blue'><i className="fa fa-external-link-square"></i></a>
+                    </li>
+                    <li>
+                      Finally, from Kaggle, I have received certifications in 🐼 Pandas, 📈 data visualization, and 🤖 machine learning. These certifications highlight my knowledge and expertise in areas related to data science and analysis.&nbsp;<a href="https://hasindusithmin.github.io/certificates/kaggle/" target="_blank" rel="noreferrer" className='w3-text-blue'><i className="fa fa-external-link-square"></i></a>
+                    </li>
+                    <li>
+                      🌟 These certifications demonstrate my dedication to continuous learning and development, and my commitment to staying up-to-date with the latest trends and technologies in the field of computer science.
+                    </li>
+                  </ul>
+                  :
+                  <ul className='w3-text-gray w3-ul' style={{ margin: 'auto' }}>
+                    <li>
+                      <Typewriter
+                        key={ID}
+                        words={["🎓🏅 I have obtained a number of certifications in various subjects from prestigious institutions, including the University of Moratuwa, Hackerrank, and Kaggle."]}
+                        typeSpeed={50}
+                        cursor="|"
+                      />
+                    </li>
+                    <li>
+                      <Typewriter
+                        key={ID}
+                        words={["👨‍💻 From the University of Moratuwa, I have received certifications in a range of subjects, including 🐍 Python programming, 💻 web development, 🎨 frontend web development, 🖥️ backend web development, and 🤝 professional practice."]}
+                        typeSpeed={60}
+                        cursor="|"
+                      />
+                    </li>
+                    <li>
+                      <Typewriter
+                        key={ID}
+                        words={["💻 Through Hackerrank, I have earned certifications in 🍵 Java, 🟨 JavaScript, 🔵 NodeJS, ⚛️ React, and 🐍 Python, showcasing my proficiency in some of the most widely used programming languages."]}
+                        typeSpeed={70}
+                        cursor="|"
+                      />
+                    </li>
+                    <li>
+                      <Typewriter
+                        key={ID}
+                        words={["📊 Finally, from Kaggle, I have received certifications in 🐼 Pandas, 📈 data visualization, and 🤖 machine learning. These certifications highlight my knowledge and expertise in areas related to data science and analysis."]}
+                        typeSpeed={80}
+                        cursor="|"
+                      />
+                    </li>
+                    <li>
+                      <Typewriter
+                        key={ID}
+                        words={["🌟 These certifications demonstrate my dedication to continuous learning and development, and my commitment to staying up-to-date with the latest trends and technologies in the field of computer science."]}
+                        typeSpeed={90}
+                        cursor="|"
+                      />
+                    </li>
+                  </ul>
+              }
             </div>
             <div className='w3-padding-32'></div>
-
-            {/* <div className='w3-hide-small'>
-              {
-                CERTS &&
-                CERTS.map(({ src, desc }) => (
-                  <Certificates key={Math.random()} src={src} desc={desc} />
-                ))
-              }
-            </div> */}
           </div>
         }
 
@@ -374,53 +361,62 @@ function App() {
             <hr style={{ width: '200px' }} className="w3-opacity" />
             <div className='w3-center w3-animate-zoom w3-display-container'>
               <div className='w3-display-middle'>
-                <a href="https://www.linkedin.com/in/hasindu-sithmin-9a1a12209/details/skills/" target='_blank' rel="noreferrer">See More</a>
+                <a href="https://www.linkedin.com/in/hasindu-sithmin-9a1a12209/details/skills/" target='_blank' rel="noreferrer" style={{ textDecoration: 'none', color: '#004182' }}>See More</a>
               </div>
               <img src={verified} alt="skills" className='w3-image w3-circle ' width="50%" />
             </div>
             <div style={{ height: 405, display: 'flex', alignItems: 'center' }}>
-              <ul className='w3-text-gray w3-ul' style={{ margin: 'auto' }}>
-                <li>
-                  <Typewriter
-                    key={ID}
-                    words={[mySkills[0]]}
-                    typeSpeed={50}
-                    cursor="|"
-                  />
-                </li>
-                <li>
-                  <Typewriter
-                    key={ID}
-                    words={[mySkills[1]]}
-                    typeSpeed={60}
-                    cursor="|"
-                  />
-                </li>
-                <li>
-                  <Typewriter
-                    key={ID}
-                    words={[mySkills[2]]}
-                    typeSpeed={70}
-                    cursor="|"
-                  />
-                </li>
-                <li>
-                  <Typewriter
-                    key={ID}
-                    words={[mySkills[3]]}
-                    typeSpeed={80}
-                    cursor="|"
-                  />
-                </li>
-                <li>
-                  <Typewriter
-                    key={ID}
-                    words={[mySkills[4]]}
-                    typeSpeed={90}
-                    cursor="|"
-                  />
-                </li>
-              </ul>
+              {
+                renderSkills > 1 ?
+                  <ul className='w3-text-gray w3-ul' style={{ margin: 'auto' }}>
+                      {
+                        mySkills.map(skill => <li key={Math.random()}>{skill}</li>)
+                      }
+                  </ul>
+                  :
+                  <ul className='w3-text-gray w3-ul' style={{ margin: 'auto' }}>
+                    <li>
+                      <Typewriter
+                        key={ID}
+                        words={[mySkills[0]]}
+                        typeSpeed={50}
+                        cursor="|"
+                      />
+                    </li>
+                    <li>
+                      <Typewriter
+                        key={ID}
+                        words={[mySkills[1]]}
+                        typeSpeed={60}
+                        cursor="|"
+                      />
+                    </li>
+                    <li>
+                      <Typewriter
+                        key={ID}
+                        words={[mySkills[2]]}
+                        typeSpeed={70}
+                        cursor="|"
+                      />
+                    </li>
+                    <li>
+                      <Typewriter
+                        key={ID}
+                        words={[mySkills[3]]}
+                        typeSpeed={80}
+                        cursor="|"
+                      />
+                    </li>
+                    <li>
+                      <Typewriter
+                        key={ID}
+                        words={[mySkills[4]]}
+                        typeSpeed={90}
+                        cursor="|"
+                      />
+                    </li>
+                  </ul>
+              }
             </div>
             <div className='w3-padding-32'></div>
           </div>
