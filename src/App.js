@@ -1,7 +1,7 @@
 
 import './App.css';
 import Navbar from './components/Navbar';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Typewriter } from 'react-simple-typewriter'
 import me from "./hasindus.png"
 import diploma from "./diploma.gif"
@@ -12,7 +12,7 @@ import mySkills from './components/javascript/skills';
 import { ThemeProvider } from 'styled-components';
 import ChatBot from 'react-simple-chatbot';
 import APIComponent from './components/APIComponent';
-
+import axios from 'axios';
 
 function App() {
 
@@ -36,6 +36,10 @@ function App() {
       }
     })
   }
+
+  useEffect(()=>{
+    axios.get('https://portafolio-chatbot.onrender.com/')
+  },[])
 
   const findID = event => {
     setID(prevID => prevID + 1)
