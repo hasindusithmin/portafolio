@@ -7,11 +7,6 @@ import tre from "./image/giphy3.gif"
 import quattro from "./image/giphy4.gif"
 import cinque from "./image/giphy5.gif"
 import devicon from "./javascript/dev"
-import ABOUT from "../about.gif"
-import EDU from "../diploma.gif"
-import CERT from "../certificate.gif"
-import SKILLS from "../verified.gif"
-import PROJ from "../blueprint.gif"
 
 export default function Navbar({ RENDER_HOME, RENDER_EDU, RENDER_CERT, RENDER_SKILLS, RENDER_PROJECTS, ID }) {
 
@@ -88,11 +83,11 @@ export default function Navbar({ RENDER_HOME, RENDER_EDU, RENDER_CERT, RENDER_SK
 
             <div className="w3-top w3-hide-large" style={{ backgroundColor: '#80808038', padding: 5 }}>
                 <div className="w3-bar w3-opacity w3-hover-opacity-off w3-center w3-small">
-                    <span onClick={RENDER_HOME} className="w3-bar-item" style={{ width: '20%', padding: 0 }}><img src={ABOUT} className="w3-round-large" alt="ABOUT" width={50} height={50} /></span>
-                    <span onClick={RENDER_EDU} className="w3-bar-item" style={{ width: '20%', padding: 0 }}><img src={EDU} className="w3-round-large" alt="EDU" width={50} height={50} /></span>
-                    <span onClick={RENDER_CERT} className="w3-bar-item" style={{ width: '20%', padding: 0 }}><img src={CERT} className="w3-round-large" alt="CERT" width={50} height={50} /></span>
-                    <span onClick={RENDER_SKILLS} className="w3-bar-item" style={{ width: '20%', padding: 0 }}><img src={SKILLS} className="w3-round-large" alt="SKILLS" width={50} height={50} /></span>
-                    <span onClick={RENDER_PROJECTS} className="w3-bar-item" style={{ width: '20%', padding: 0 }}><img src={PROJ} className="w3-round-large" alt="PROJ" width={50} height={50} /></span>
+                    <span onClick={RENDER_HOME} className="w3-bar-item" style={{ width: '20%', padding: 0 }}><img src="/about.gif" className="w3-round-large" alt="ABOUT" width={50} height={50} /></span>
+                    <span onClick={RENDER_EDU} className="w3-bar-item" style={{ width: '20%', padding: 0 }}><img src="/diploma.gif" className="w3-round-large" alt="EDU" width={50} height={50} /></span>
+                    <span onClick={RENDER_CERT} className="w3-bar-item" style={{ width: '20%', padding: 0 }}><img src="/certificate.gif" className="w3-round-large" alt="CERT" width={50} height={50} /></span>
+                    <span onClick={RENDER_SKILLS} className="w3-bar-item" style={{ width: '20%', padding: 0 }}><img src="/verified.gif" className="w3-round-large" alt="SKILLS" width={50} height={50} /></span>
+                    <span onClick={RENDER_PROJECTS} className="w3-bar-item" style={{ width: '20%', padding: 0 }}><img src="/blueprint.gif" className="w3-round-large" alt="PROJ" width={50} height={50} /></span>
                 </div>
             </div>
 
