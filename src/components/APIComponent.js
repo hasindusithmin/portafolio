@@ -8,15 +8,16 @@ const APIComponent = ({ steps, trigger, triggerNextStep }) => {
     const [reply, setReply] = useState(null)
     const question = steps['input']['message']
     useEffect(() => {
-        axios.post('https://portafolio-chatbot.onrender.com', { question })
+        axios.post('https://whoami-1-w7727518.deta.app', { question })
             .then((response) => {
                 setIsLoading(false)
-                setReply(response.data)
+                setReply(response.data.reply)
                 triggerNextStep({ value: '', trigger });
             })
             .catch((error) => {
                 setIsLoading(false)
-                setReply(error.message)
+                setReply("I am currently busy. Would you mind if we talk later?")
+                triggerNextStep({ value: '', trigger });
             });
     }, []);
 

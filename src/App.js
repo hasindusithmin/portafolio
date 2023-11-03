@@ -144,22 +144,17 @@ function App() {
 
       <ThemeProvider theme={theme}>
         <ChatBot
-          headerTitle="Ask Me"
-          botAvatar="/about.gif"
+          headerTitle="Chat With Me"
+          botAvatar="/hasindus.png"
           steps={[
             {
               id: 'intro',
-              message: "Hello, I'm Hasindu Sithmin.",
+              message: "Hi 👋, I'm Hasindu Sithmin.",
               trigger: 'first_question',
             },
             {
               id: 'first_question',
-              message: "what do you want to know from me?.",
-              trigger: 'input',
-            },
-            {
-              id: 'question',
-              message: 'What else do you want to know from me?',
+              message: "Let's talk",
               trigger: 'input',
             },
             {
@@ -172,7 +167,7 @@ function App() {
               component: (
                 <APIComponent
                   message="Hi {previousValue}, nice to meet you!"
-                  trigger="question"
+                  trigger="input"
                 />
               ),
               waitAction: true,
