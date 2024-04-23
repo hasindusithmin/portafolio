@@ -8,7 +8,7 @@ const APIComponent = ({ steps, trigger, triggerNextStep }) => {
     const [reply, setReply] = useState(null)
     const question = steps['input']['message']
     useEffect(() => {
-        axios.post('https://whoami-1-w7727518.deta.app', { question })
+        axios.post('https://ifpyapi-1-p4769562.deta.app/chat', { question })
             .then((response) => {
                 setIsLoading(false)
                 setReply(response.data.reply)
